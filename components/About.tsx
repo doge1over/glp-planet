@@ -6,12 +6,12 @@ import { IconPin } from "./Icons";
 export default function About() {
     return (
         <section id="about" className="about-section">
-            <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+            <div style={{ maxWidth: 1000, margin: "0 auto" }}>
                 <Reveal><div className="section-label">Участникам</div></Reveal>
                 <Reveal delay={60}><h2 className="section-title">О конференции</h2></Reveal>
                 <Reveal delay={100}><div className="section-divider" /></Reveal>
 
-                <div style={{ maxWidth: 900 }}>
+                <div>
                     <Reveal delay={140}>
                         <p className="about-text">
                             Конференция GLP-PLANET ежегодно объединяет специалистов научно-исследовательских центров,
