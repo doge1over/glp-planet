@@ -13,7 +13,7 @@ const conferences = [
     { year: 2022, roman: "III", label: "GLP — Planet конференция 3.0", img: "/images/archive/2022.jpg", href: "https://glp-planet.com/glp-planet-konferencziya-2022/" },
     { year: 2023, roman: "IV", label: "GLP — Planet конференция 4.0", img: "/images/archive/2023.jpg", href: "https://glp-planet.com/conference2023/" },
     { year: 2024, roman: "V", label: "GLP — Planet конференция 5.0", img: "/images/archive/2024.jpg", href: "https://glp-planet.com/glp-planet-konferencziya-2024/" },
-    { year: 2025, roman: "VI", label: "GLP — Planet конференция 6.0", img: "/images/archive/2025.jpg", href: "https://glp-planet.com/glp-planet-konferencziya-2025/" },
+    { year: 2025, roman: "VI", label: "GLP — Planet конференция 6.0", img: "/images/archive/2020.jpg", href: "https://glp-planet.com/glp-planet-konferencziya-2025/" },
 ];
 
 export default function ArchivePage() {
