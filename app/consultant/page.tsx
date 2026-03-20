@@ -41,13 +41,7 @@ export default function ConsultantPage() {
             <Header />
             <main style={{ minHeight: "100vh" }}>
                 {/* Hero */}
-                <section
-                    style={{
-                        padding: "140px 48px 60px",
-                        background:
-                            "linear-gradient(155deg, #080C24 0%, #141B4D 45%, #192258 100%)",
-                    }}
-                >
+                <section className="consultant-hero">
                     <div style={{ maxWidth: 1200, margin: "0 auto" }}>
                         <div
                             style={{
@@ -61,15 +55,7 @@ export default function ConsultantPage() {
                         >
                             Монографии
                         </div>
-                        <h1
-                            style={{
-                                fontSize: 42,
-                                fontWeight: 700,
-                                color: "#fff",
-                                lineHeight: 1.2,
-                                marginBottom: 16,
-                            }}
-                        >
+                        <h1 className="consultant-title">
                             Консультант GLP-PLANET
                         </h1>
                         <p
@@ -87,7 +73,7 @@ export default function ConsultantPage() {
                 </section>
 
                 {/* Monographs grid */}
-                <section style={{ padding: "80px 48px 100px" }}>
+                <section className="consultant-content">
                     <div style={{ maxWidth: 1200, margin: "0 auto" }}>
                         <div className="monographs-grid">
                             {monographs.map((m) => (
@@ -146,18 +132,28 @@ export default function ConsultantPage() {
             <Footer />
 
             <style>{`
+        .consultant-hero {
+          padding: 140px 48px 60px;
+          background: linear-gradient(155deg, #080C24 0%, #141B4D 45%, #192258 100%);
+        }
+        .consultant-title {
+          font-size: 42px; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 16px;
+        }
+        .consultant-content {
+          padding: 80px 48px 100px;
+        }
         .monographs-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 32px;
         }
         .monograph-card {
-        text-decoration: none;
-        display: block;
-        transition: transform 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+          text-decoration: none;
+          display: block;
+          transition: transform 0.6s cubic-bezier(0.33, 1, 0.68, 1);
         }
         .monograph-card:hover {
-        transform: translateY(-6px);
+          transform: translateY(-6px);
         }
         .monograph-cover {
           position: relative;
@@ -172,15 +168,15 @@ export default function ConsultantPage() {
           box-shadow: 0 20px 50px rgba(20, 27, 77, 0.2);
         }
         .monograph-overlay {
-        position: absolute;
-        inset: 0;
-        background: rgba(8, 12, 36, 0.75);
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
-        padding-bottom: 100px;
-        opacity: 0;
-        transition: opacity 0.3s;
+          position: absolute;
+          inset: 0;
+          background: rgba(8, 12, 36, 0.75);
+          display: flex;
+          align-items: flex-end;
+          justify-content: center;
+          padding-bottom: 100px;
+          opacity: 0;
+          transition: opacity 0.3s;
         }
         .monograph-card:hover .monograph-overlay {
           opacity: 1;
@@ -201,6 +197,11 @@ export default function ConsultantPage() {
           background: rgba(255,255,255,0.15);
           border-color: #fff;
         }
+        @media (max-width: 1024px) {
+          .consultant-hero { padding: 120px 32px 48px; }
+          .consultant-title { font-size: 34px; }
+          .consultant-content { padding: 60px 32px 80px; }
+        }
         @media (max-width: 1000px) {
           .monographs-grid {
             grid-template-columns: repeat(2, 1fr);
@@ -208,12 +209,16 @@ export default function ConsultantPage() {
           }
         }
         @media (max-width: 600px) {
+          .consultant-hero { padding: 100px 20px 40px; }
+          .consultant-title { font-size: 28px; }
+          .consultant-content { padding: 40px 20px 60px; }
           .monographs-grid {
             grid-template-columns: 1fr;
             gap: 32px;
             max-width: 380px;
             margin: 0 auto;
           }
+
         }
       `}</style>
         </>

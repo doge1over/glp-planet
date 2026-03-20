@@ -76,13 +76,7 @@ export default function ContactsPage() {
             <Header />
             <main style={{ minHeight: "100vh" }}>
                 {/* Hero */}
-                <section
-                    style={{
-                        padding: "140px 48px 60px",
-                        background:
-                            "linear-gradient(155deg, #080C24 0%, #141B4D 45%, #192258 100%)",
-                    }}
-                >
+                <section className="contacts-hero">
                     <div style={{ maxWidth: 1200, margin: "0 auto" }}>
                         <FadeIn>
                             <div
@@ -99,15 +93,7 @@ export default function ContactsPage() {
                             </div>
                         </FadeIn>
                         <FadeIn delay={80}>
-                            <h1
-                                style={{
-                                    fontSize: 42,
-                                    fontWeight: 700,
-                                    color: "#fff",
-                                    lineHeight: 1.2,
-                                    marginBottom: 16,
-                                }}
-                            >
+                            <h1 className="contacts-title">
                                 Контакты
                             </h1>
                         </FadeIn>
@@ -127,7 +113,7 @@ export default function ContactsPage() {
                 </section>
 
                 {/* Content */}
-                <section style={{ padding: "80px 48px" }}>
+                <section className="contacts-content">
                     <div className="contacts-grid" style={{ maxWidth: 1200, margin: "0 auto" }}>
                         {/* Contact cards */}
                         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
@@ -256,7 +242,7 @@ export default function ContactsPage() {
                 </section>
 
                 {/* Payment info */}
-                <section style={{ padding: "0 48px 80px" }}>
+                <section className="contacts-payment">
                     <div style={{ maxWidth: 1200, margin: "0 auto" }}>
                         <FadeIn delay={100}>
                             <div
@@ -280,6 +266,15 @@ export default function ContactsPage() {
             <Footer />
 
             <style>{`
+        .contacts-hero {
+          padding: 140px 48px 60px;
+          background: linear-gradient(155deg, #080C24 0%, #141B4D 45%, #192258 100%);
+        }
+        .contacts-title {
+          font-size: 42px; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 16px;
+        }
+        .contacts-content { padding: 80px 48px; }
+        .contacts-payment { padding: 0 48px 80px; }
         .contacts-grid {
           display: grid;
           grid-template-columns: 1.2fr 1fr;
@@ -323,10 +318,22 @@ export default function ContactsPage() {
           border-color: rgba(255,255,255,0.3);
           transform: translateY(-2px);
         }
+        @media (max-width: 1024px) {
+          .contacts-hero { padding: 120px 32px 48px; }
+          .contacts-title { font-size: 34px; }
+          .contacts-content { padding: 60px 32px; }
+          .contacts-payment { padding: 0 32px 60px; }
+        }
         @media (max-width: 900px) {
           .contacts-grid {
             grid-template-columns: 1fr;
           }
+        }
+        @media (max-width: 600px) {
+          .contacts-hero { padding: 100px 20px 40px; }
+          .contacts-title { font-size: 28px; }
+          .contacts-content { padding: 40px 20px; }
+          .contacts-payment { padding: 0 20px 48px; }
         }
       `}</style>
         </>

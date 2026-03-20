@@ -4,48 +4,24 @@ import Reveal from "./Reveal";
 import Counter from "./Counter";
 
 const stats = [
-    { end: 7, suffix: "", label: "Конференция" },
-    { end: 10, suffix: "", label: "Тематических сессий" },
-    { end: 3, suffix: "", label: "Дня программы" },
-    { end: 500, suffix: "+", label: "Участников ежегодно" },
+    { n: 7, s: "", l: "Конференций" },
+    { n: 10, s: "", l: "Сессий" },
+    { n: 3, s: "", l: "Дня программы" },
+    { n: 500, s: "+", l: "Участников" },
 ];
 
 export default function Stats() {
     return (
-        <section
-            style={{
-                padding: "70px 48px",
-                borderTop: "1px solid var(--light)",
-                borderBottom: "1px solid var(--light)",
-            }}
-        >
+        <section className="stats-section">
             <div style={{ maxWidth: 1200, margin: "0 auto" }}>
                 <div className="stats-grid">
                     {stats.map((st, i) => (
                         <Reveal key={i} delay={i * 60}>
                             <div style={{ textAlign: "center", padding: 20 }}>
-                                <div
-                                    style={{
-                                        fontSize: 44,
-                                        fontWeight: 800,
-                                        color: "var(--primary)",
-                                        lineHeight: 1,
-                                        marginBottom: 6,
-                                    }}
-                                >
-                                    <Counter end={st.end} suffix={st.suffix} />
+                                <div className="stats-number">
+                                    <Counter end={st.n} suffix={st.s} />
                                 </div>
-                                <div
-                                    style={{
-                                        fontSize: 11,
-                                        color: "var(--muted)",
-                                        fontWeight: 500,
-                                        letterSpacing: 1.5,
-                                        textTransform: "uppercase",
-                                    }}
-                                >
-                                    {st.label}
-                                </div>
+                                <div className="stats-label">{st.l}</div>
                             </div>
                         </Reveal>
                     ))}
@@ -53,15 +29,23 @@ export default function Stats() {
             </div>
 
             <style>{`
-        .stats-grid {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 20px;
+        .stats-section {
+          padding: 70px 48px;
+          border-top: 1px solid var(--light);
+          border-bottom: 1px solid var(--light);
         }
-        @media (max-width: 900px) {
-          .stats-grid {
-            grid-template-columns: 1fr 1fr;
-          }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .stats-number { font-size: 44px; font-weight: 800; color: var(--primary); line-height: 1; margin-bottom: 6px; }
+        .stats-label { font-size: 11px; color: var(--muted); font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; }
+
+        @media (max-width: 1024px) {
+          .stats-section { padding: 56px 32px; }
+        }
+        @media (max-width: 600px) {
+          .stats-section { padding: 40px 20px; }
+          .stats-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+          .stats-number { font-size: 32px; }
+          .stats-label { font-size: 10px; }
         }
       `}</style>
         </section>

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const navItems = [
     { href: "/consultant", label: "Консультант" },
@@ -41,173 +42,127 @@ export default function Header() {
           cursor: pointer;
           transition: color 0.3s;
         }
-        .header-nav-link:hover {
-          color: #fff;
-        }
+        .header-nav-link:hover { color: #fff; }
         .header-nav-link::after {
-          content: "";
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 0;
-          height: 1px;
-          background: #6b82c4;
-          transition: width 0.3s;
+          content: ""; position: absolute; bottom: 0; left: 0;
+          width: 0; height: 1px; background: #6b82c4; transition: width 0.3s;
         }
-        .header-nav-link:hover::after {
-          width: 100%;
+        .header-nav-link:hover::after { width: 100%; }
+
+        .header-desktop-nav { display: flex; align-items: center; gap: 36px; }
+
+        .header-mobile-toggle {
+          display: none;
+          position: fixed;
+          top: 20px;
+          right: 48px;
+          z-index: 1100;
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 10px;
+          flex-direction: column;
+          gap: 5px;
         }
+
+        .header-mobile-menu {
+          position: fixed; inset: 0; background: #141b4d; z-index: 1050;
+          display: flex; flex-direction: column; align-items: center;
+          justify-content: center; gap: 32px;
+          animation: fadeIn 0.3s ease-out;
+        }
+        .header-mobile-menu-link {
+          color: rgba(255,255,255,0.6); text-decoration: none;
+          font-size: 18px; font-weight: 600; letter-spacing: 3px;
+          text-transform: uppercase; padding: 8px 0; transition: color 0.3s;
+        }
+        .header-mobile-menu-link:hover { color: #fff; }
+
         @media (max-width: 900px) {
-          .header-desktop-nav {
-            display: none !important;
-          }
-          .header-mobile-toggle {
-            display: flex !important;
-          }
+          .header-desktop-nav { display: none !important; }
+          .header-mobile-toggle { display: flex !important; }
+        }
+        @media (max-width: 600px) {
+          .header-mobile-toggle { right: 20px; }
+          .header-mobile-menu-link { font-size: 16px; letter-spacing: 2px; }
         }
       `}</style>
 
-            {/* Full-width background */}
+            {/* Full-width background bar */}
             <div
                 style={{
-                    position: "fixed",
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    height: 64,
-                    zIndex: 99,
+                    position: "fixed", top: 0, left: 0, right: 0, height: 64, zIndex: 99,
                     background: scrolled ? "rgba(8,12,36,0.94)" : "transparent",
                     backdropFilter: scrolled ? "blur(14px)" : "none",
                     borderBottom: scrolled ? "1px solid rgba(73,100,162,0.1)" : "none",
-                    transition: "all 0.35s",
-                    pointerEvents: "none",
+                    transition: "all 0.35s", pointerEvents: "none",
                 }}
             />
 
+            {/* Header content */}
             <header
                 style={{
-                    position: "fixed",
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    zIndex: 100,
-                    height: 64,
-                    display: "flex",
-                    alignItems: "center",
+                    position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
+                    height: 64, display: "flex", alignItems: "center",
                     justifyContent: "space-between",
-                    maxWidth: 1240,
-                    margin: "0 auto",
-                    padding: "0 48px",
+                    maxWidth: 1240, margin: "0 auto", padding: "0 48px",
                 }}
             >
-                {/* Logo — image, shifted down */}
-                <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center"}}>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center" }}>
+                    <Image
                         src="/images/logo.png"
                         alt="GLP-PLANET"
-                        style={{ height: 50, width: "auto", objectFit: "contain" }}
+                        width={100}
+                        height={50}
+                        style={{ width: "auto", height: 50, objectFit: "contain" }}
+                        priority
                     />
                 </Link>
 
-                {/* Desktop nav */}
-                <nav
-                    className="header-desktop-nav"
-                    style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: 36,
-                    }}
-                >
+                <nav className="header-desktop-nav">
                     {navItems.map((item) => (
-                        <Link
-                            key={item.href}
-                            href={item.href}
-                            className="header-nav-link"
-                        >
+                        <Link key={item.href} href={item.href} className="header-nav-link">
                             {item.label}
                         </Link>
                     ))}
                 </nav>
-
-                {/* Mobile toggle */}
-                <button
-                    className="header-mobile-toggle"
-                    onClick={() => setMenuOpen(!menuOpen)}
-                    aria-label="Меню"
-                    style={{
-                        display: "none",
-                        background: "none",
-                        border: "none",
-                        cursor: "pointer",
-                        padding: 8,
-                        flexDirection: "column" as const,
-                        gap: 5,
-                    }}
-                >
-                    {[0, 1, 2].map((i) => (
-                        <div
-                            key={i}
-                            style={{
-                                width: 20,
-                                height: 1.5,
-                                background: "#fff",
-                                borderRadius: 1,
-                                transition: "all 0.3s",
-                                ...(menuOpen && i === 0 ? { transform: "rotate(45deg) translateY(6px)" } : {}),
-                                ...(menuOpen && i === 1 ? { opacity: 0 } : {}),
-                                ...(menuOpen && i === 2 ? { transform: "rotate(-45deg) translateY(-6px)" } : {}),
-                            }}
-                        />
-                    ))}
-                </button>
-
-                {/* Mobile fullscreen menu */}
-                {menuOpen && (
-                    <div
-                        style={{
-                            position: "fixed",
-                            inset: 0,
-                            background: "#141b4d",
-                            zIndex: 999,
-                            display: "flex",
-                            flexDirection: "column",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            gap: 28,
-                            animation: "fadeIn 0.25s ease-out",
-                        }}
-                    >
-                        <button
-                            onClick={() => setMenuOpen(false)}
-                            style={{
-                                position: "absolute",
-                                top: 16,
-                                right: 24,
-                                background: "none",
-                                border: "none",
-                                color: "#fff",
-                                fontSize: 26,
-                                cursor: "pointer",
-                                fontWeight: 300,
-                            }}
-                        >
-                            ×
-                        </button>
-                        {navItems.map((item) => (
-                            <Link
-                                key={item.href}
-                                href={item.href}
-                                className="header-nav-link"
-                                style={{ fontSize: 17, letterSpacing: 3 }}
-                                onClick={() => setMenuOpen(false)}
-                            >
-                                {item.label}
-                            </Link>
-                        ))}
-                    </div>
-                )}
             </header>
+
+            {/* Burger button — OUTSIDE header, fixed, always on top */}
+            <button
+                className="header-mobile-toggle"
+                onClick={() => setMenuOpen(!menuOpen)}
+                aria-label="Меню"
+            >
+                {[0, 1, 2].map((i) => (
+                    <div
+                        key={i}
+                        style={{
+                            width: 22, height: 2, background: "#fff", borderRadius: 1,
+                            transition: "all 0.35s cubic-bezier(0.33, 1, 0.68, 1)",
+                            ...(menuOpen && i === 0 ? { transform: "rotate(45deg) translate(4px, 5px)" } : {}),
+                            ...(menuOpen && i === 1 ? { opacity: 0, transform: "scaleX(0)" } : {}),
+                            ...(menuOpen && i === 2 ? { transform: "rotate(-45deg) translate(4px, -5px)" } : {}),
+                        }}
+                    />
+                ))}
+            </button>
+
+            {/* Mobile fullscreen menu */}
+            {menuOpen && (
+                <div className="header-mobile-menu">
+                    {navItems.map((item) => (
+                        <Link
+                            key={item.href}
+                            href={item.href}
+                            className="header-mobile-menu-link"
+                            onClick={() => setMenuOpen(false)}
+                        >
+                            {item.label}
+                        </Link>
+                    ))}
+                </div>
+            )}
         </>
     );
 }
