@@ -4,7 +4,7 @@ import Reveal from "./Reveal";
 import Image from "next/image";
 
 const partners = [
-    { name: "Журнал «Разработка и регистрация лекарственных средств»", img: "/images/partners/rrl.jpg", href: "https://www.pharmjournal.ru/jour/announcement/view/618" },
+    { name: "Журнал «Разработка и регистрация лекарственных средств»", img: "/images/partners/rrl.png", href: "https://www.pharmjournal.ru/jour/announcement/view/618" },
     { name: "Laboratory Animals Journal", img: "/images/partners/laj.png", href: null },
     { name: "SciCat — платформа научных каталогов", img: "/images/partners/scicat.png", href: "https://sci-cat.ru/" },
 ];
