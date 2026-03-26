@@ -66,7 +66,7 @@ export default function Program() {
                                                 {s.topics.map((topic, j) => (
                                                     <div key={j} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
                                                         <div style={{ width: 5, height: 5, borderRadius: 1, background: "var(--secondary)", marginTop: 7, flexShrink: 0 }} />
-                                                        <span style={{ color: "#555", fontSize: 14, lineHeight: 1.65 }}>{topic}</span>
+                                                        <span style={{ color: "#3a3f4a", fontSize: 14, lineHeight: 1.65 }}>{topic}</span>
                                                     </div>
                                                 ))}
                                             </div>
@@ -81,7 +81,7 @@ export default function Program() {
 
             <style>{`
         .program-section { padding: 110px 48px; background: var(--white); }
-        .program-desc { font-size: 15px; color: #666; line-height: 1.7; margin-bottom: 48px; max-width: 720px; }
+        .program-desc { font-size: 15px; color: #4a5060; line-height: 1.7; margin-bottom: 48px; max-width: 720px; }
         .program-session-btn {
           width: 100%; display: flex; gap: 18px; align-items: flex-start;
           padding: 24px 28px; background: none; border: none;

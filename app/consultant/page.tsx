@@ -61,7 +61,7 @@ export default function ConsultantPage() {
                         <p
                             style={{
                                 fontSize: 16,
-                                color: "rgba(255,255,255,0.45)",
+                                color: "rgba(255,255,255,0.6)",
                                 lineHeight: 1.8,
                                 maxWidth: 620,
                             }}

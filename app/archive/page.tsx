@@ -8,12 +8,12 @@ export const metadata = {
 };
 
 const conferences = [
-    { year: 2020, roman: "I", label: "GLP — Planet конференция 1.0", img: "/images/archive/2020.jpg", href: "https://glp-planet.com/conference2020/" },
-    { year: 2021, roman: "II", label: "GLP — Planet конференция 2.0", img: "/images/archive/2021.jpg", href: "https://glp-planet.com/glp-planet-konferencziya-2021/" },
-    { year: 2022, roman: "III", label: "GLP — Planet конференция 3.0", img: "/images/archive/2022.jpg", href: "https://glp-planet.com/glp-planet-konferencziya-2022/" },
-    { year: 2023, roman: "IV", label: "GLP — Planet конференция 4.0", img: "/images/archive/2023.jpg", href: "https://glp-planet.com/conference2023/" },
-    { year: 2024, roman: "V", label: "GLP — Planet конференция 5.0", img: "/images/archive/2024.jpg", href: "https://glp-planet.com/glp-planet-konferencziya-2024/" },
-    { year: 2025, roman: "VI", label: "GLP — Planet конференция 6.0", img: "/images/archive/2020.jpg", href: "https://glp-planet.com/glp-planet-konferencziya-2025/" },
+    { year: 2020, roman: "I",   label: "GLP — Planet конференция 1.0", img: "/images/archive/2020.jpg", href: "/archive/2020" },
+    { year: 2021, roman: "II",  label: "GLP — Planet конференция 2.0", img: "/images/archive/2021.jpg", href: "/archive/2021" },
+    { year: 2022, roman: "III", label: "GLP — Planet конференция 3.0", img: "/images/archive/2022.jpg", href: "/archive/2022" },
+    { year: 2023, roman: "IV",  label: "GLP — Planet конференция 4.0", img: "/images/archive/2023.jpg", href: "/archive/2023" },
+    { year: 2024, roman: "V",   label: "GLP — Planet конференция 5.0", img: "/images/archive/2024.jpg", href: "/archive/2024" },
+    { year: 2025, roman: "VI",  label: "GLP — Planet конференция 6.0", img: "/images/archive/2020.jpg", href: "/archive/2025" },
 ];
 
 export default function ArchivePage() {
@@ -25,7 +25,7 @@ export default function ArchivePage() {
                     <div style={{ maxWidth: 1200, margin: "0 auto" }}>
                         <div style={{ fontSize: 11, color: "#6B82C4", fontWeight: 600, textTransform: "uppercase", letterSpacing: 3, marginBottom: 12 }}>История</div>
                         <h1 style={{ fontSize: 42, fontWeight: 700, color: "#fff", lineHeight: 1.2, marginBottom: 16 }}>Архив конференций</h1>
-                        <p style={{ fontSize: 16, color: "rgba(255,255,255,0.45)", lineHeight: 1.8, maxWidth: 560 }}>Все прошедшие конференции GLP-PLANET</p>
+                        <p style={{ fontSize: 16, color: "rgba(255,255,255,0.72)", lineHeight: 1.8, maxWidth: 560 }}>Все прошедшие конференции GLP-PLANET</p>
                     </div>
                 </section>
 
@@ -78,7 +78,7 @@ export default function ArchivePage() {
           justify-content: flex-end; padding: 28px; z-index: 2;
         }
         .archive-card-year { font-size: 52px; font-weight: 800; color: #fff; line-height: 1; margin-bottom: 6px; }
-        .archive-card-label { font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 16px; }
+        .archive-card-label { font-size: 14px; color: rgba(255,255,255,0.72); margin-bottom: 16px; }
         .archive-card-btn {
           display: inline-block; padding: 8px 22px;
           border: 1.5px solid rgba(255,255,255,0.3); border-radius: 3px;

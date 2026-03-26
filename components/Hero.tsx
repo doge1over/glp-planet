@@ -1,9 +1,31 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import WireframeGlobe from "./WireframeGlobe";
 import { IconArrow, IconFile } from "./Icons";
 
+const CONF_DATE = new Date("2026-07-01T09:00:00+03:00").getTime();
+
+function useCountdown() {
+    const [mounted, setMounted] = useState(false);
+    const [now, setNow] = useState(CONF_DATE);
+    useEffect(() => {
+        setMounted(true);
+        setNow(Date.now());
+        const id = setInterval(() => setNow(Date.now()), 1000);
+        return () => clearInterval(id);
+    }, []);
+    const diff = mounted ? Math.max(0, CONF_DATE - now) : 0;
+    return {
+        days: Math.floor(diff / 86400000),
+        hours: Math.floor((diff % 86400000) / 3600000),
+        minutes: Math.floor((diff % 3600000) / 60000),
+        seconds: Math.floor((diff % 60000) / 1000),
+    };
+}
+
 export default function Hero() {
+    const cd = useCountdown();
     return (
         <section
             style={{
@@ -35,36 +57,42 @@ export default function Hero() {
                     </p>
 
                     <div className="hero-buttons" style={{ animation: "fadeUp 0.65s ease-out 0.32s both" }}>
-                        <a href="https://doclinika.timepad.ru/event/3689916" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ textDecoration: "none" }}>
+                        <a href="/registration" className="btn-primary" style={{ textDecoration: "none" }}>
                             <span>Регистрация</span><IconArrow />
                         </a>
                         <a href="https://glp-planet.com/wp-content/uploads/2026/03/pervoe-informaczionnoe-pismo_sajt.pdf" target="_blank" rel="noopener noreferrer" className="btn-outline" style={{ textDecoration: "none" }}>
                             <IconFile /><span>Информационное письмо</span>
                         </a>
                     </div>
+
                 </div>
 
                 <div className="hero-globe" style={{ flex: "0 0 auto", position: "relative", animation: "fadeIn 1.2s ease-out 0.5s both" }}>
                     <WireframeGlobe size={440} />
-                    <div style={{
-                        position: "absolute", bottom: 50, left: 32, padding: "6px 14px",
-                        background: "rgba(8,12,36,0.65)", border: "1px solid rgba(107,130,196,0.15)",
-                        borderRadius: 2, fontSize: 10, color: "#8B95B5", letterSpacing: 2,
-                        textTransform: "uppercase", backdropFilter: "blur(6px)",
-                    }}>
-                        Good Laboratory Practice
-                    </div>
+
                 </div>
             </div>
 
-            <div className="hero-scroll-hint">
-                <span>Scroll</span>
-                <div style={{ width: 1, height: 32, background: "linear-gradient(#fff, transparent)" }} />
+            {/* Countdown — centered at bottom */}
+            <div className="hero-countdown" style={{ animation: "fadeUp 0.8s ease-out 0.5s both" }}>
+                {[
+                    { value: cd.days, label: "дней" },
+                    { value: cd.hours, label: "часов" },
+                    { value: cd.minutes, label: "минут" },
+                    { value: cd.seconds, label: "секунд" },
+                ].map((item, i) => (
+                    <div key={i} className="hero-countdown-item">
+                        <div className="hero-countdown-value">
+                            {String(item.value).padStart(2, "0")}
+                        </div>
+                        <div className="hero-countdown-label">{item.label}</div>
+                    </div>
+                ))}
             </div>
 
             <style>{`
         .hero-grid {
-          max-width: 1240px; margin: 0 auto; padding: 110px 48px 80px;
+          max-width: 1240px; margin: 0 auto; padding: 120px 48px 140px;
           position: relative; z-index: 2; width: 100%;
           display: flex; align-items: center; justify-content: space-between; gap: 24px;
         }
@@ -74,7 +102,7 @@ export default function Hero() {
           border-radius: 2px; margin-bottom: 32px;
         }
         .hero-date-badge span {
-          color: rgba(255,255,255,0.6); font-size: 11px; font-weight: 500;
+          color: rgba(255,255,255,0.75); font-size: 11px; font-weight: 500;
           letter-spacing: 2.5px; text-transform: uppercase;
         }
         .hero-title-light {
@@ -86,39 +114,75 @@ export default function Hero() {
           line-height: 1.12; margin-bottom: 28px; letter-spacing: 1.5px;
         }
         .hero-subtitle {
-          font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.85;
+          font-size: 15px; color: rgba(255,255,255,0.85); line-height: 1.85;
           max-width: 520px; margin-bottom: 14px;
         }
         .hero-desc {
-          font-size: 14px; color: rgba(255,255,255,0.35); line-height: 1.7;
+          font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.7;
           max-width: 520px; margin-bottom: 40px;
         }
         .hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
-        .hero-scroll-hint {
-          position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
-          display: flex; flex-direction: column; align-items: center; gap: 6px; opacity: 0.35;
+
+        /* Countdown — always centered */
+        .hero-countdown {
+          position: absolute; bottom: 44px; left: 0; right: 0;
+          display: flex; justify-content: center; align-items: center;
+          gap: 36px; z-index: 3; padding: 0 20px;
+          box-sizing: border-box;
         }
-        .hero-scroll-hint span {
-          color: #fff; font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+        .hero-countdown-item { text-align: center; min-width: 0; }
+        .hero-countdown-value {
+          font-size: 44px; font-weight: 800; color: rgba(255,255,255,0.9);
+          line-height: 1; font-variant-numeric: tabular-nums;
+          letter-spacing: 2px;
+        }
+        .hero-countdown-label {
+          font-size: 10px; color: rgba(255,255,255,0.45);
+          text-transform: uppercase; letter-spacing: 2.5px;
+          margin-top: 8px;
         }
 
         /* Tablet */
         @media (max-width: 1024px) {
-          .hero-grid { padding: 100px 32px 60px; }
+          .hero-grid { padding: 110px 32px 130px; }
           .hero-title-light, .hero-title-bold { font-size: 42px; }
           .hero-globe { display: none; }
+          .hero-countdown { bottom: 36px; gap: 28px; }
+          .hero-countdown-value { font-size: 36px; letter-spacing: 1.5px; }
+          .hero-countdown-label { font-size: 9px; letter-spacing: 2px; }
+        }
+
+        /* Small tablet / large phone */
+        @media (max-width: 768px) {
+          .hero-grid { padding: 100px 24px 120px; }
+          .hero-title-light, .hero-title-bold { font-size: 36px; }
+          .hero-subtitle { font-size: 14px; }
+          .hero-desc { font-size: 13px; margin-bottom: 32px; }
+          .hero-countdown { bottom: 28px; gap: 24px; }
+          .hero-countdown-value { font-size: 30px; }
         }
 
         /* Mobile */
         @media (max-width: 600px) {
-          .hero-grid { padding: 100px 20px 60px; flex-direction: column; }
+          .hero-grid { padding: 96px 20px 110px; flex-direction: column; }
           .hero-title-light, .hero-title-bold { font-size: 30px; }
           .hero-date-badge { margin-bottom: 24px; }
           .hero-date-badge span { font-size: 9px; letter-spacing: 1.5px; }
-          .hero-subtitle { font-size: 14px; }
-          .hero-desc { font-size: 13px; margin-bottom: 28px; }
+          .hero-subtitle { font-size: 13px; max-width: 100%; }
+          .hero-desc { font-size: 12px; margin-bottom: 28px; max-width: 100%; }
           .hero-buttons { flex-direction: column; }
-          .hero-scroll-hint { display: none; }
+          .hero-countdown { bottom: 20px; gap: 16px; padding: 0 16px; }
+          .hero-countdown-value { font-size: 26px; letter-spacing: 1px; }
+          .hero-countdown-label { font-size: 8px; letter-spacing: 1.5px; margin-top: 6px; }
+        }
+
+        /* Very small screens */
+        @media (max-width: 380px) {
+          .hero-grid { padding: 90px 16px 100px; }
+          .hero-title-light, .hero-title-bold { font-size: 26px; }
+          .hero-countdown { gap: 12px; bottom: 16px; padding: 0 12px; }
+          .hero-countdown-value { font-size: 22px; }
+          .hero-countdown-label { font-size: 7px; letter-spacing: 1px; }
         }
       `}</style>
         </section>

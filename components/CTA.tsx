@@ -13,17 +13,14 @@ export default function CTA() {
                 </Reveal>
                 <Reveal delay={60}>
                     <p className="cta-text">
-                        1–3 июля 2026 года, Санкт-Петербург. Очное и онлайн участие через систему Timepad.
+                        1–3 июля 2026 года, Санкт-Петербург. Очное и онлайн участие.
                         Лектор участвует без организационного взноса.
                     </p>
                 </Reveal>
                 <Reveal delay={120}>
                     <div className="cta-buttons">
-                        <a href="https://doclinika.timepad.ru/event/3689916" target="_blank" rel="noopener noreferrer" className="btn-primary-inverted" style={{ textDecoration: "none" }}>
-                            <span>Очное участие</span><IconArrow />
-                        </a>
-                        <a href="https://doclinika.timepad.ru/event/3690058" target="_blank" rel="noopener noreferrer" className="btn-outline" style={{ textDecoration: "none", borderColor: "rgba(255,255,255,0.25)" }}>
-                            <span>Онлайн участие</span>
+                        <a href="/registration" className="btn-primary-inverted" style={{ textDecoration: "none" }}>
+                            <span>Регистрация</span><IconArrow />
                         </a>
                     </div>
                 </Reveal>
@@ -37,7 +34,7 @@ export default function CTA() {
         }
         .cta-inner { max-width: 620px; margin: 0 auto; position: relative; z-index: 2; }
         .cta-title { font-size: 30px; font-weight: 700; color: #fff; margin-bottom: 14px; line-height: 1.35; }
-        .cta-text { color: rgba(255,255,255,0.42); font-size: 15px; line-height: 1.7; margin-bottom: 36px; }
+        .cta-text { color: rgba(255,255,255,0.6); font-size: 15px; line-height: 1.7; margin-bottom: 36px; }
         .cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
         @media (max-width: 1024px) {

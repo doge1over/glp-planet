@@ -54,7 +54,8 @@ const contactCards = [
     {
         label: "E-mail",
         value: "sci.secretary@glp-planet.com",
-        href: "mailto:sci.secretary@glp-planet.com",
+        href: null,
+        copy: true,
     },
     {
         label: "Телефон",
@@ -71,6 +72,14 @@ const contactCards = [
 ];
 
 export default function ContactsPage() {
+    const [copied, setCopied] = useState(false);
+
+    const handleCopy = () => {
+        navigator.clipboard.writeText("sci.secretary@glp-planet.com");
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+    };
+
     return (
         <>
             <Header />
@@ -101,7 +110,7 @@ export default function ContactsPage() {
                             <p
                                 style={{
                                     fontSize: 16,
-                                    color: "rgba(255,255,255,0.45)",
+                                    color: "rgba(255,255,255,0.6)",
                                     lineHeight: 1.8,
                                     maxWidth: 500,
                                 }}
@@ -140,7 +149,31 @@ export default function ContactsPage() {
                                         >
                                             {item.label}
                                         </div>
-                                        {item.href ? (
+                                        {item.copy ? (
+                                            <button
+                                                onClick={handleCopy}
+                                                className="contact-link contact-copy-btn"
+                                                style={{
+                                                    fontSize: 17,
+                                                    fontWeight: 600,
+                                                    color: "var(--primary)",
+                                                    background: "none",
+                                                    border: "none",
+                                                    padding: 0,
+                                                    cursor: "pointer",
+                                                    textAlign: "left",
+                                                    fontFamily: "inherit",
+                                                    display: "flex",
+                                                    alignItems: "center",
+                                                    gap: 8,
+                                                }}
+                                            >
+                                                {item.value}
+                                                <span className="contact-copy-hint" style={copied ? { opacity: 1 } : undefined}>
+                                                    {copied ? "✓ Скопировано" : "Копировать"}
+                                                </span>
+                                            </button>
+                                        ) : item.href ? (
                                             <a
                                                 href={item.href}
                                                 className="contact-link"
@@ -213,7 +246,7 @@ export default function ContactsPage() {
                                             <div
                                                 style={{
                                                     fontSize: 11,
-                                                    color: "rgba(255,255,255,0.35)",
+                                                    color: "rgba(255,255,255,0.5)",
                                                     letterSpacing: 1.5,
                                                     textTransform: "uppercase",
                                                     marginBottom: 4,
@@ -221,7 +254,7 @@ export default function ContactsPage() {
                                             >
                                                 {row.label}
                                             </div>
-                                            <div style={{ color: "rgba(255,255,255,0.8)", fontSize: 15 }}>
+                                            <div style={{ color: "rgba(255,255,255,0.9)", fontSize: 15 }}>
                                                 {row.value}
                                             </div>
                                         </div>
@@ -230,10 +263,10 @@ export default function ContactsPage() {
 
                                 <div style={{ marginTop: 28 }}>
                                     <a
-                                        href="mailto:sci.secretary@glp-planet.com"
+                                        href="/registration"
                                         className="contacts-btn"
                                     >
-                                        Написать нам
+                                        Регистрация
                                     </a>
                                 </div>
                             </div>
@@ -241,27 +274,6 @@ export default function ContactsPage() {
                     </div>
                 </section>
 
-                {/* Payment info */}
-                <section className="contacts-payment">
-                    <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-                        <FadeIn delay={100}>
-                            <div
-                                style={{
-                                    padding: "20px 24px",
-                                    background: "var(--light)",
-                                    borderRadius: 4,
-                                    fontSize: 12,
-                                    color: "var(--muted)",
-                                    lineHeight: 1.7,
-                                }}
-                            >
-                                Платежный агрегатор (банковский платежный агент) оператора — АО «КОКК» (ИНН 7710060991),
-                                тел. 8 800 250 3556 на основании Соглашения от 29.12.2007 и Дополнительного соглашения от
-                                31.12.2019.
-                            </div>
-                        </FadeIn>
-                    </div>
-                </section>
             </main>
             <Footer />
 
@@ -274,7 +286,7 @@ export default function ContactsPage() {
           font-size: 42px; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 16px;
         }
         .contacts-content { padding: 80px 48px; }
-        .contacts-payment { padding: 0 48px 80px; }
+
         .contacts-grid {
           display: grid;
           grid-template-columns: 1.2fr 1fr;
@@ -294,6 +306,19 @@ export default function ContactsPage() {
         }
         .contact-link:hover {
           color: var(--secondary) !important;
+        }
+        .contact-copy-btn:hover {
+          color: var(--secondary) !important;
+        }
+        .contact-copy-hint {
+          font-size: 11px;
+          font-weight: 500;
+          color: var(--secondary);
+          opacity: 0;
+          transition: opacity 0.3s;
+        }
+        .contact-copy-btn:hover .contact-copy-hint {
+          opacity: 1;
         }
         .contacts-btn {
           display: inline-flex;
@@ -322,7 +347,7 @@ export default function ContactsPage() {
           .contacts-hero { padding: 120px 32px 48px; }
           .contacts-title { font-size: 34px; }
           .contacts-content { padding: 60px 32px; }
-          .contacts-payment { padding: 0 32px 60px; }
+
         }
         @media (max-width: 900px) {
           .contacts-grid {
@@ -333,7 +358,7 @@ export default function ContactsPage() {
           .contacts-hero { padding: 100px 20px 40px; }
           .contacts-title { font-size: 28px; }
           .contacts-content { padding: 40px 20px; }
-          .contacts-payment { padding: 0 20px 48px; }
+
         }
       `}</style>
         </>

@@ -3,8 +3,8 @@
 import Reveal from "./Reveal";
 import Counter from "./Counter";
 
-const stats = [
-    { n: 7, s: "", l: "Конференций" },
+const stats: ({ n: number; s: string; l: string; roman?: undefined } | { roman: string; l: string; n?: undefined; s?: undefined })[] = [
+    { roman: "VII", l: "Конференция" },
     { n: 10, s: "", l: "Сессий" },
     { n: 3, s: "", l: "Дня программы" },
     { n: 500, s: "+", l: "Участников" },
@@ -19,7 +19,7 @@ export default function Stats() {
                         <Reveal key={i} delay={i * 60}>
                             <div style={{ textAlign: "center", padding: 20 }}>
                                 <div className="stats-number">
-                                    <Counter end={st.n} suffix={st.s} />
+                                    {st.roman ? st.roman : <Counter end={st.n!} suffix={st.s!} />}
                                 </div>
                                 <div className="stats-label">{st.l}</div>
                             </div>

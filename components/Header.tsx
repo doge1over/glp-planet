@@ -7,6 +7,7 @@ import Image from "next/image";
 const navItems = [
     { href: "/consultant", label: "Консультант" },
     { href: "/#about", label: "Участникам" },
+    { href: "/registration", label: "Регистрация" },
     { href: "/archive", label: "Архив" },
     { href: "/contacts", label: "Контакты" },
 ];
@@ -30,8 +31,14 @@ export default function Header() {
     return (
         <>
             <style>{`
+        .header-inner {
+          position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+          height: 64px; display: flex; align-items: center;
+          justify-content: space-between;
+          max-width: 1240px; margin: 0 auto; padding: 0 48px;
+        }
         .header-nav-link {
-          color: rgba(255,255,255,0.55);
+          color: rgba(255,255,255,0.7);
           text-decoration: none;
           font-size: 12px;
           font-weight: 600;
@@ -50,6 +57,10 @@ export default function Header() {
         .header-nav-link:hover::after { width: 100%; }
 
         .header-desktop-nav { display: flex; align-items: center; gap: 36px; }
+        .header-date {
+          color: rgba(255,255,255,0.75); font-size: 10px; font-weight: 500;
+          letter-spacing: 1.5px; text-transform: uppercase; white-space: nowrap;
+        }
 
         .header-mobile-toggle {
           display: none;
@@ -72,17 +83,20 @@ export default function Header() {
           animation: fadeIn 0.3s ease-out;
         }
         .header-mobile-menu-link {
-          color: rgba(255,255,255,0.6); text-decoration: none;
+          color: rgba(255,255,255,0.72); text-decoration: none;
           font-size: 18px; font-weight: 600; letter-spacing: 3px;
           text-transform: uppercase; padding: 8px 0; transition: color 0.3s;
         }
         .header-mobile-menu-link:hover { color: #fff; }
 
         @media (max-width: 900px) {
+          .header-inner { padding: 0 24px; }
           .header-desktop-nav { display: none !important; }
-          .header-mobile-toggle { display: flex !important; }
+          .header-date { display: none !important; }
+          .header-mobile-toggle { display: flex !important; right: 24px; }
         }
         @media (max-width: 600px) {
+          .header-inner { padding: 0 20px; }
           .header-mobile-toggle { right: 20px; }
           .header-mobile-menu-link { font-size: 16px; letter-spacing: 2px; }
         }
@@ -100,14 +114,7 @@ export default function Header() {
             />
 
             {/* Header content */}
-            <header
-                style={{
-                    position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
-                    height: 64, display: "flex", alignItems: "center",
-                    justifyContent: "space-between",
-                    maxWidth: 1240, margin: "0 auto", padding: "0 48px",
-                }}
-            >
+            <header className="header-inner">
                 <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center" }}>
                     <Image
                         src="/images/logo.png"
@@ -118,6 +125,10 @@ export default function Header() {
                         priority
                     />
                 </Link>
+
+                <div className="header-date">
+                    01 — 03 июля 2026 · Санкт-Петербург
+                </div>
 
                 <nav className="header-desktop-nav">
                     {navItems.map((item) => (

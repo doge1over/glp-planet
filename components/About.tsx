@@ -68,7 +68,7 @@ export default function About() {
 
             <style>{`
                 .about-section { padding: 110px 48px; }
-                .about-text { font-size: 15px; line-height: 1.9; color: #555; margin-bottom: 20px; }
+                .about-text { font-size: 15px; line-height: 1.9; color: #333; margin-bottom: 20px; }
                 .about-info-row {
                     display: grid;
                     grid-template-columns: 1fr 2fr;
@@ -92,7 +92,7 @@ export default function About() {
                     gap: 8px;
                 }
                 .about-info-card-text {
-                    color: #666;
+                    color: #444;
                     line-height: 1.6;
                     font-size: 13px;
                     flex: 1;

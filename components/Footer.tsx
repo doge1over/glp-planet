@@ -7,6 +7,7 @@ import { IconMail, IconPhone, IconChevron } from "./Icons";
 const navItems = [
     { href: "/consultant", label: "Консультант" },
     { href: "/#about", label: "Участникам" },
+    { href: "/registration", label: "Регистрация" },
     { href: "/archive", label: "Архив" },
     { href: "/contacts", label: "Контакты" },
 ];
@@ -56,24 +57,24 @@ export default function Footer() {
             </div>
 
             <style>{`
-        .footer-section { padding: 64px 48px 28px; background: var(--dark); color: rgba(255,255,255,0.48); }
+        .footer-section { padding: 64px 48px 28px; background: var(--dark); color: rgba(255,255,255,0.6); }
         .footer-heading {
           color: #fff; font-weight: 600; margin-bottom: 16px;
           font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
         }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 44px; margin-bottom: 48px; }
         .footer-bottom {
-          border-top: 1px solid rgba(255,255,255,0.05); padding-top: 18px;
+          border-top: 1px solid rgba(255,255,255,0.08); padding-top: 18px;
           display: flex; justify-content: space-between; align-items: center;
-          flex-wrap: wrap; gap: 10px; font-size: 11px; color: rgba(255,255,255,0.25);
+          flex-wrap: wrap; gap: 10px; font-size: 11px; color: rgba(255,255,255,0.4);
         }
         .footer-link {
-          color: rgba(255,255,255,0.4); font-size: 13px; text-decoration: none;
+          color: rgba(255,255,255,0.55); font-size: 13px; text-decoration: none;
           transition: color 0.3s; display: flex; align-items: center; gap: 4px;
         }
         .footer-link:hover { color: #fff; }
         .footer-contact-link {
-          color: rgba(255,255,255,0.48); text-decoration: none;
+          color: rgba(255,255,255,0.6); text-decoration: none;
           transition: color 0.3s; display: flex; align-items: center; gap: 8px;
         }
         .footer-contact-link:hover { color: #fff; }
