@@ -63,22 +63,36 @@ interface GridPt {
     land: boolean;
 }
 
-// ── Country markers ──
+// ── Country markers (22 countries) ──
 const MARKERS: { lat: number; lon: number; label: string; offsetX: number; offsetY: number }[] = [
+    // Russia
     { lat: 59.94, lon: 30.31, label: "Санкт-Петербург", offsetX: 14, offsetY: -18 },
-    { lat: 55.75, lon: 37.62, label: "Москва", offsetX: 14, offsetY: -14 },
-    { lat: 53.9, lon: 27.57, label: "Беларусь", offsetX: 14, offsetY: -12 },
-    { lat: 40.42, lon: -3.70, label: "Испания", offsetX: -14, offsetY: -14 },
-    { lat: 55.68, lon: 12.57, label: "Дания", offsetX: -14, offsetY: -16 },
-    { lat: 41.90, lon: 12.50, label: "Италия", offsetX: -14, offsetY: -10 },
+    { lat: 55.75, lon: 37.62, label: "Москва", offsetX: 14, offsetY: -10 },
+    // CIS & Caucasus
+    { lat: 53.9, lon: 27.57, label: "Беларусь", offsetX: -14, offsetY: -12 },
     { lat: 40.18, lon: 44.51, label: "Армения", offsetX: 14, offsetY: -10 },
+    { lat: 43.00, lon: 41.02, label: "Абхазия", offsetX: -14, offsetY: -10 },
+    { lat: 41.72, lon: 44.79, label: "Грузия", offsetX: 14, offsetY: 14 },
     { lat: 51.17, lon: 71.43, label: "Казахстан", offsetX: 14, offsetY: -14 },
-    { lat: 48.86, lon: 2.35, label: "Франция", offsetX: -14, offsetY: -10 },
+    { lat: 41.31, lon: 69.28, label: "Узбекистан", offsetX: 14, offsetY: 14 },
+    // Europe
     { lat: 51.51, lon: -0.13, label: "Великобритания", offsetX: -14, offsetY: -18 },
-    { lat: 50.85, lon: 4.35, label: "Бельгия", offsetX: -14, offsetY: 16 },
+    { lat: 48.86, lon: 2.35, label: "Франция", offsetX: -14, offsetY: 14 },
     { lat: 52.52, lon: 13.41, label: "Германия", offsetX: 14, offsetY: 16 },
-    { lat: 38.91, lon: -77.04, label: "США", offsetX: -14, offsetY: -14 },
+    { lat: 50.85, lon: 4.35, label: "Бельгия", offsetX: -14, offsetY: 16 },
+    { lat: 55.68, lon: 12.57, label: "Дания", offsetX: -14, offsetY: -16 },
+    { lat: 40.42, lon: -3.70, label: "Испания", offsetX: -14, offsetY: -14 },
+    { lat: 41.90, lon: 12.50, label: "Италия", offsetX: -14, offsetY: -10 },
+    { lat: 46.95, lon: 7.45, label: "Швейцария", offsetX: -14, offsetY: 16 },
+    { lat: 44.82, lon: 20.46, label: "Сербия", offsetX: 14, offsetY: 12 },
+    // Asia
+    { lat: 39.90, lon: 116.40, label: "Китай", offsetX: 14, offsetY: -12 },
     { lat: 28.61, lon: 77.21, label: "Индия", offsetX: 14, offsetY: -12 },
+    // Americas
+    { lat: 38.91, lon: -77.04, label: "США", offsetX: -14, offsetY: -14 },
+    { lat: 23.11, lon: -82.37, label: "Куба", offsetX: -14, offsetY: 12 },
+    // Africa
+    { lat: -33.93, lon: 18.42, label: "ЮАР", offsetX: 14, offsetY: 14 },
 ];
 
 const MARKER_DATA = MARKERS.map((m) => ({
@@ -237,65 +251,109 @@ export default function WireframeGlobe({ size = 440 }: Props) {
             ctx.fill();
         }
 
-        // ── Country markers with labels ──
+        // ── Country markers with labels (nudge to avoid overlap) ──
         const pulse = (Math.sin(rot * 3) + 1) * 0.5;
 
+        // Compute visible markers sorted by depth (front first = priority)
+        const visible: { m: typeof MARKER_DATA[0]; px: number; py: number; z: number; alpha: number }[] = [];
         for (let i = 0; i < MARKER_DATA.length; i++) {
             const m = MARKER_DATA[i];
             const lonS = Math.sin(m.lonR) * cosRot + Math.cos(m.lonR) * sinRot;
             const lonC = Math.cos(m.lonR) * cosRot - Math.sin(m.lonR) * sinRot;
             const z = m.cosLat * lonC;
             if (z < 0.15) continue;
-
             const px = cx + r * m.cosLat * lonS;
             const py = cy - r * m.sinLat;
             const alpha = 0.3 + 0.7 * z;
+            visible.push({ m, px, py, z, alpha });
+        }
+        visible.sort((a, b) => b.z - a.z);
 
-            // Glow
+        // Label bounding boxes for nudging
+        const placed: { x1: number; y1: number; x2: number; y2: number }[] = [];
+        const LBL_H = 14;
+        const PAD = 3;
+
+        ctx.font = "500 8px 'Exo 2', sans-serif";
+
+        for (const { m, px, py, alpha } of visible) {
+            // Always draw dot + glow
             ctx.fillStyle = `rgba(190,225,255,${0.08 * alpha})`;
             ctx.beginPath();
             ctx.arc(px, py, 8 + pulse * 3, 0, Math.PI * 2);
             ctx.fill();
 
-            // Dot
             ctx.fillStyle = `rgba(210,235,255,${0.85 * alpha})`;
             ctx.beginPath();
             ctx.arc(px, py, 2.2 + pulse * 0.3, 0, Math.PI * 2);
             ctx.fill();
 
-            // Bright core
             ctx.fillStyle = `rgba(240,250,255,${0.7 * alpha})`;
             ctx.beginPath();
             ctx.arc(px, py, 0.9, 0, Math.PI * 2);
             ctx.fill();
 
-            // Leader line
+            // Compute base label position
             const lineLen = 22;
             const dirX = m.offsetX > 0 ? 1 : -1;
             const dirY = m.offsetY > 0 ? 1 : -1;
-            const endX = px + dirX * lineLen;
-            const endY = py + dirY * Math.abs(m.offsetY / m.offsetX) * lineLen;
+            let endX = px + dirX * lineLen;
+            let endY = py + dirY * Math.abs(m.offsetY / m.offsetX) * lineLen;
+            const dashLen = 12;
+            let textX = endX + dirX * (dashLen + 3);
+            const textW = ctx.measureText(m.label).width;
 
-            ctx.strokeStyle = `rgba(160,210,255,${0.35 * alpha})`;
+            // Build box for this label
+            let lx1 = dirX > 0 ? textX - PAD : textX - textW - PAD;
+            let lx2 = dirX > 0 ? textX + textW + PAD : textX + PAD;
+            let ly1 = endY - LBL_H;
+            let ly2 = endY + PAD;
+
+            // Nudge vertically until no overlap (max 8 attempts)
+            let nudgeDir = dirY;
+            for (let attempt = 0; attempt < 12; attempt++) {
+                let hit = false;
+                for (const b of placed) {
+                    if (lx1 < b.x2 && lx2 > b.x1 && ly1 < b.y2 && ly2 > b.y1) {
+                        hit = true;
+                        break;
+                    }
+                }
+                if (!hit) break;
+                // If going out of bounds, flip direction
+                if (ly1 < 8 && nudgeDir < 0) nudgeDir = 1;
+                if (ly2 > size - 8 && nudgeDir > 0) nudgeDir = -1;
+                const shift = nudgeDir * (LBL_H + 2);
+                endY += shift;
+                ly1 += shift;
+                ly2 += shift;
+            }
+
+            // Clamp to canvas bounds
+            if (ly1 < 4) { const fix = 4 - ly1; endY += fix; ly1 += fix; ly2 += fix; }
+            if (ly2 > size - 4) { const fix = ly2 - (size - 4); endY -= fix; ly1 -= fix; ly2 -= fix; }
+
+            placed.push({ x1: lx1, y1: ly1, x2: lx2, y2: ly2 });
+
+            // Leader line
+            ctx.strokeStyle = `rgba(160,210,255,${0.25 * alpha})`;
             ctx.lineWidth = 0.6;
             ctx.beginPath();
             ctx.moveTo(px, py);
             ctx.lineTo(endX, endY);
             ctx.stroke();
 
-            // Small dash at line end
-            const dashLen = 12;
+            // Dash
             ctx.beginPath();
             ctx.moveTo(endX, endY);
             ctx.lineTo(endX + dirX * dashLen, endY);
             ctx.stroke();
 
-            // Label text
-            ctx.font = "600 9px 'Exo 2', sans-serif";
-            ctx.fillStyle = `rgba(230,245,255,${0.92 * alpha})`;
+            // Label — white
+            ctx.fillStyle = `rgba(255,255,255,${0.75 * alpha})`;
             ctx.textBaseline = "bottom";
             ctx.textAlign = dirX > 0 ? "left" : "right";
-            ctx.fillText(m.label, endX + dirX * (dashLen + 3), endY - 1);
+            ctx.fillText(m.label, textX, endY - 1);
         }
 
 

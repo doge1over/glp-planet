@@ -47,7 +47,7 @@ export default function Hero() {
                         Конференция
                     </h1>
                     <h1 className="hero-title-bold" style={{ animation: "fadeUp 0.65s ease-out 0.16s both" }}>
-                        GLP-PLANET <span style={{ fontWeight: 300, color: "#6B82C4" }}>VII</span>
+                        GLP-PLANET <span style={{ fontWeight: 300, color: "#fff" }}>VII</span>
                     </h1>
                     <p className="hero-subtitle" style={{ animation: "fadeUp 0.65s ease-out 0.24s both" }}>
                         Совместно с Русской ассоциацией специалистов по лабораторным животным Rus-LASA

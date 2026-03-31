@@ -23,6 +23,31 @@ function FadeIn({ children, delay = 0, direction = "up" }: { children: React.Rea
     );
 }
 
+function CopyEmail() {
+    const [copied, setCopied] = useState(false);
+    const email = "sci.secretary@glp-planet.com";
+    const handleCopy = () => {
+        navigator.clipboard.writeText(email).then(() => {
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2000);
+        });
+    };
+    return (
+        <button onClick={handleCopy} style={{
+            display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
+            width: "100%", padding: "12px 16px", background: "rgba(107,130,196,0.12)",
+            border: "1px solid rgba(107,130,196,0.2)", borderRadius: 6,
+            cursor: "pointer", transition: "all 0.3s",
+        }}>
+            <span style={{ fontSize: 13, fontWeight: 500, color: "#fff", fontFamily: "'Exo 2', sans-serif" }}>{email}</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                {copied ? <><path d="M20 6L9 17l-5-5" /></> : <><rect x="9" y="9" width="13" height="13" rx="2" /><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" /></>}
+            </svg>
+            {copied && <span style={{ fontSize: 11, color: "rgba(255,255,255,0.5)" }}>скопировано</span>}
+        </button>
+    );
+}
+
 export default function RegistrationPage() {
     return (
         <>
@@ -103,10 +128,11 @@ export default function RegistrationPage() {
                                             href="https://doclinika.timepad.ru/event/3690058"
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="btn-outline reg-card-btn-outline"
+                                            className="btn-primary"
                                             style={{ textDecoration: "none", width: "100%", justifyContent: "center" }}
                                         >
                                             <span>Зарегистрироваться</span>
+                                            <IconArrow />
                                         </a>
                                     </div>
                                 </div>
@@ -128,16 +154,10 @@ export default function RegistrationPage() {
                                         направьте тему доклада и его краткое описание на почту организационного комитета.
                                     </p>
                                     <div style={{ marginTop: "auto", paddingTop: 24 }}>
-                                        <a
-                                            href="mailto:sci.secretary@glp-planet.com"
-                                            className="btn-primary"
-                                            style={{ textDecoration: "none", width: "100%", justifyContent: "center" }}
-                                        >
-                                            <span>Написать на почту</span>
-                                        </a>
-                                        <div style={{ marginTop: 12, textAlign: "center", fontSize: 12, color: "rgba(255,255,255,0.7)", lineHeight: 1.5 }}>
-                                            sci.secretary@glp-planet.com
-                                        </div>
+                                        <p style={{ fontSize: 13, color: "rgba(255,255,255,0.65)", lineHeight: 1.7, marginBottom: 14, textAlign: "center" }}>
+                                            Для регистрации напишите на почту
+                                        </p>
+                                        <CopyEmail />
                                     </div>
                                 </div>
                             </FadeIn>
@@ -204,15 +224,6 @@ export default function RegistrationPage() {
         }
         .reg-card-desc {
           font-size: 14px; color: #444; line-height: 1.7;
-        }
-        .reg-card-btn-outline {
-          color: var(--primary) !important;
-          border-color: rgba(73,100,162,0.2) !important;
-        }
-        .reg-card-btn-outline:hover {
-          color: var(--primary) !important;
-          border-color: var(--secondary) !important;
-          background: rgba(73,100,162,0.05) !important;
         }
 
 

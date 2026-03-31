@@ -4,27 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f52157a0-c438-480c-904d-f81c73af3430" name="Changes" comment="1">
-      <change afterPath="$PROJECT_DIR$/app/archive/2020/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/archive/2021/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/archive/2022/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/archive/2023/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/archive/2024/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/archive/2025/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/registration/page.tsx" afterDir="false" />
+    <list default="true" id="f52157a0-c438-480c-904d-f81c73af3430" name="Changes" comment="2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/archive/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/archive/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/consultant/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/consultant/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/contacts/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/contacts/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/About.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/About.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/CTA.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/CTA.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/registration/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/registration/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Hero.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Hero.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Program.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Program.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Stats.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Stats.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/WireframeGlobe.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/WireframeGlobe.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -126,7 +109,8 @@
       <workItem from="1774094988610" duration="1659000" />
       <workItem from="1774285822023" duration="133000" />
       <workItem from="1774378817208" duration="8941000" />
-      <workItem from="1774554066797" duration="807000" />
+      <workItem from="1774554066797" duration="1640000" />
+      <workItem from="1774948376153" duration="1930000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -176,7 +160,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774095967552</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="2">
+      <option name="closed" value="true" />
+      <created>1774554936184</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1774554936184</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,7 +187,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1" />
-    <option name="LAST_COMMIT_MESSAGE" value="1" />
+    <MESSAGE value="2" />
+    <option name="LAST_COMMIT_MESSAGE" value="2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
