@@ -60,7 +60,7 @@ export default function Hero() {
                         <a href="/registration" className="btn-primary" style={{ textDecoration: "none" }}>
                             <span>Регистрация</span><IconArrow />
                         </a>
-                        <a href="https://glp-planet.com/wp-content/uploads/2026/03/pervoe-informaczionnoe-pismo_sajt.pdf" target="_blank" rel="noopener noreferrer" className="btn-outline" style={{ textDecoration: "none" }}>
+                        <a href="/docs/info-letter-2026.pdf" target="_blank" rel="noopener noreferrer" className="btn-outline" style={{ textDecoration: "none" }}>
                             <IconFile /><span>Информационное письмо</span>
                         </a>
                     </div>

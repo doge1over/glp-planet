@@ -5,8 +5,8 @@ import Image from "next/image";
 import { IconMail, IconPhone, IconChevron } from "./Icons";
 
 const navItems = [
+    { href: "/", label: "Главная" },
     { href: "/consultant", label: "Консультант" },
-    { href: "/#about", label: "Участникам" },
     { href: "/registration", label: "Регистрация" },
     { href: "/archive", label: "Архив" },
     { href: "/contacts", label: "Контакты" },
@@ -18,8 +18,10 @@ export default function Footer() {
             <div style={{ maxWidth: 1200, margin: "0 auto" }}>
                 <div className="footer-grid">
                     <div>
-                        <div style={{ marginBottom: 18 }}>
+                        <div style={{ marginBottom: 18, display: "flex", alignItems: "center", gap: 16 }}>
                             <Image src="/images/logo.png" alt="GLP-PLANET" width={160} height={80} style={{ width: "auto", height: 80, objectFit: "contain" }} />
+                            <div style={{ width: 1, height: 40, background: "rgba(255,255,255,0.12)" }} />
+                            <Image src="/images/RusLASA_logo.png" alt="Rus-LASA" width={160} height={80} style={{ width: "auto", height: 80, objectFit: "contain" }} />
                         </div>
                         <p style={{ lineHeight: 1.8, fontSize: 13, maxWidth: 360 }}>
                             Конференция в области надлежащей лабораторной практики, фармакологии и доклинических исследований.

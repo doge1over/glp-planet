@@ -5,8 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 
 const navItems = [
+    { href: "/", label: "Главная" },
     { href: "/consultant", label: "Консультант" },
-    { href: "/#about", label: "Участникам" },
     { href: "/registration", label: "Регистрация" },
     { href: "/archive", label: "Архив" },
     { href: "/contacts", label: "Контакты" },
@@ -115,16 +115,26 @@ export default function Header() {
 
             {/* Header content */}
             <header className="header-inner">
-                <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                    <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center" }}>
+                        <Image
+                            src="/images/logo.png"
+                            alt="GLP-PLANET"
+                            width={100}
+                            height={50}
+                            style={{ width: "auto", height: 50, objectFit: "contain" }}
+                            priority
+                        />
+                    </Link>
+                    <div style={{ width: 1, height: 28, background: "rgba(255,255,255,0.15)" }} />
                     <Image
-                        src="/images/logo.png"
-                        alt="GLP-PLANET"
+                        src="/images/RusLASA_logo.png"
+                        alt="Rus-LASA"
                         width={100}
                         height={50}
                         style={{ width: "auto", height: 50, objectFit: "contain" }}
-                        priority
                     />
-                </Link>
+                </div>
 
                 <div className="header-date">
                     01 — 03 июля 2026 · Санкт-Петербург
