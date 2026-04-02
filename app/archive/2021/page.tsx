@@ -7,62 +7,173 @@ export const metadata = {
 };
 
 const materials = [
-    { author: "Макаров В.Г.", title: "Доклад", pdf: "#" },
-    { author: "Рождественский Д.А.", title: "Доклад", pdf: "#" },
-    { author: "Javier Guillén", title: "Доклад", pdf: "#" },
-    { author: "Тулегенова А.У.", title: "Доклад", pdf: "#" },
-    { author: "Енгалычева Г.Н.", title: "Доклад", pdf: "#" },
-    { author: "Шакарян М.К.", title: "Доклад", pdf: "#" },
-    { author: "Беспалов А.Ю.", title: "Доклад", pdf: "#" },
-    { author: "Lars F.M.", title: "Scientific advantages of using GM in biomedical research", pdf: "#" },
-    { author: "Галагудза М.М.", title: "Доклад", pdf: "#" },
-    { author: "Lars F.M.", title: "Optimized housing and care of Göttingen Minipigs", pdf: "#" },
-    { author: "Vismara G.", title: "Доклад", pdf: "#" },
-    { author: "Ковалева Е.Л.", title: "Доклад", pdf: "#" },
-    { author: "Мурашев А.Н.", title: "Доклад", pdf: "#" },
-    { author: "Ниязов Р.Р.", title: "Доклад", pdf: "#" },
-    { author: "Чепур С.В.", title: "Доклад", pdf: "#" },
-    { author: "Калинин Ю.", title: "Доклад", pdf: "#" },
-    { author: "Григорьев В.В.", title: "Доклад", pdf: "#" },
-    { author: "Доротенко А.", title: "Доклад", pdf: "#" },
-    { author: "Гущина С.В.", title: "Доклад", pdf: "#" },
-    { author: "Исакова-Сивак И.Н.", title: "Доклад", pdf: "#" },
-    { author: "Петров Д.В.", title: "Доклад", pdf: "#" },
-    { author: "Попов В.С.", title: "Доклад", pdf: "#" },
-    { author: "Макаренко И.Е.", title: "Доклад", pdf: "#" },
-    { author: "Солодовников А.Г.", title: "Доклад", pdf: "#" },
-    { author: "Акимова М.А.", title: "Доклад", pdf: "#" },
-    { author: "Бондарева Е.Д.", title: "Доклад", pdf: "#" },
-    { author: "Гремякова П.", title: "Доклад", pdf: "#" },
-    { author: "Ловат М.Л.", title: "Доклад", pdf: "#" },
-    { author: "Флисюк Е.В.", title: "Доклад", pdf: "#" },
-    { author: "Ковалева М.А.", title: "Доклад", pdf: "#" },
-    { author: "Ходько С.В.", title: "Доклад", pdf: "#" },
-    { author: "Шохин И.", title: "Доклад", pdf: "#" },
-    { author: "Торопова Я.Г.", title: "Доклад", pdf: "#" },
-    { author: "Попов В.С.", title: "Доклад (2)", pdf: "#" },
-    { author: "Ивкин Д.Ю.", title: "Доклад", pdf: "#" },
-    { author: "Муразов Я.Г.", title: "Доклад", pdf: "#" },
-    { author: "Шипаева Е.В.", title: "Доклад", pdf: "#" },
-    { author: "Макарова М.Н.", title: "Доклад", pdf: "#" },
-    { author: "Саяхов Р.", title: "Доклад", pdf: "#" },
-    { author: "Зайцева М.А.", title: "Доклад", pdf: "#" },
-    { author: "Амстиславская Т.Г.", title: "Доклад", pdf: "#" },
-    { author: "Карал-оглы Д.Д.", title: "Доклад", pdf: "#" },
-    { author: "Ильинский Н.С.", title: "Доклад", pdf: "#" },
-    { author: "Устюгов А.А.", title: "Доклад", pdf: "#" },
-    { author: "Гущин Я.А.", title: "Доклад", pdf: "#" },
-    { author: "Ковалева М.А.", title: "Журнал", pdf: "#" },
-    { author: "Литвинова Е.А.", title: "Доклад", pdf: "#" },
-    { author: "Кушнир Е.А.", title: "Доклад", pdf: "#" },
-    { author: "Салминьш Д.", title: "Доклад", pdf: "#" },
-    { author: "Акимов Д.Ю.", title: "Доклад", pdf: "#" },
-    { author: "Rogers A.", title: "Доклад", pdf: "#" },
-    { author: "Александров А.В.", title: "Доклад", pdf: "#" },
-    { author: "Александров А.", title: "Доклад", pdf: "#" },
-    { author: "Васютина М.", title: "Health monitoring", pdf: "#" },
-    { author: "Фальковский И.В.", title: "Доклад", pdf: "#" },
+    { author: "Макаров В.Г.", title: "GLP-PLANET", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/makarov-v.g..pdf" },
+    { author: "Рождественский Д.А.", title: "РАЗВИТИЕ ТРЕБОВАНИЙ К ОРГАНИЗАЦИИ\n" +
+            "И ПРОВЕДЕНИЮ GLP- ИССЛЕДОВАНИЙ В\n" +
+            "ЕВРАЗИЙСКОМ ЭКОНОМИЧЕСКОМ СОЮЗЕ", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/rozhdestvenskij-d.a..pdf" },
+    { author: "Javier Guillén", title: "Quality Systems and Animal\n" +
+            "Welfare in Research", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/javier_guillen.pdf" },
+    { author: "Тулегенова А.У.", title: "БИОЛОГИЧЕСКИЕ МЕТОДЫ\n" +
+            "КОНТРОЛЯ КАЧЕСТВА\n" +
+            "ЛЕКАРСТВЕННЫХ СРЕДСТВ\n" +
+            "В ФАРМАКОПЕЕ ЕАЭС", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/tulegenova-a.u..pdf" },
+    { author: "Енгалычева Г.Н. Болсуновская Ю.Р.", title: "Объем доклинических исследований\n" +
+            "безопасности на разных этапах\n" +
+            "разработки лекарственного препарата \n", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/engalycheva-g.n..pdf" },
+    { author: "Шакарян М.К.", title: "РЕГУЛЯТОРНЫЕ\n" +
+            "ИНСПЕКЦИИ САЙТОВ\n" +
+            "ПРЕДКЛИНИЧЕСКИХ\n" +
+            "ИССЛЕДОВАНИЙ", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/shakaryan-m.k..pdf" },
+    { author: "Беспалов А.Ю.", title: "Инновационный подход к качеству\n" +
+            "нерегулируемых доклинических\n" +
+            "исследований", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/bespalov-a.yu..pdf" },
+    { author: "Lars F.M.", title: "Scientific advantages of using GM in biomedical research", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/lars-f.m._scientific-advantages-of-using-gm-in-biomedical-research.pdf" },
+    { author: "Галагудза М.М.", title: "Валидность и воспроизводимость результатов\n" +
+            "преклинических исследований: пути выхода из\n" +
+            "«трансляционного тупика»", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/galagudza-m.m..pdf" },
+    { author: "Lars F.M.", title: "Optimized housing and care of Göttingen Minipigs", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/lars-f.-m._optimized-housing-and-care-of-gottingen-minipigs.pdf" },
+    { author: "Vismara G.", title: "Biosafety Standards and Common\n" +
+            "Protocols in Lab Animal Science", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/vismara-g..pdf" },
+    { author: "Ковалева Е.Л.", title: "Оце нка и контр оль\n" +
+            "пр име с е й в ле ка р с тве нных\n" +
+            "средствах", pdf: "https://glp-planet.com/wp-content/uploads/2021/08/kovaleva-e.l..pdf" },
+    { author: "Мурашев А.Н.", title: "НЕКЛИНИЧЕСКИЕ ИССЛЕДОВАНИЯ\n" +
+            "ДЛЯ РЕГИСТРАЦИИ В ФОРМАТЕ\n" +
+            "CTD И REACH", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/murashev-a.n..pdf" },
+    { author: "Ниязов Р.Р.", title: "Правовая основа и\n" +
+            "регуляторика GLP", pdf: "https://glp-planet.com/wp-content/uploads/2021/08/niyazov-r.r..pdf" },
+    { author: "Чепур С.В.", title: "Изменения структуры органов и\n" +
+            "тканей при инфекции\n" +
+            "SARS-CoV-2: подходы к оценке\n" +
+            "эффективности средств терапии", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/chepur-s.v..pdf" },
+    { author: "Калинин Ю.", title: "Создание автоматизированной системы\n" +
+            "диспетчеризации микроклимата\n" +
+            "чистой зоны SPF вивария", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/kalinin_yurij.pdf" },
+    { author: "Григорьев В.В.", title: "Комфортная среда обитания\n" +
+            "для лабораторных животных\n" +
+            "в клетках и вольерах\n" +
+            "компании Roklet", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/grigorev-v.v..pdf" },
+    { author: "Доротенко А.", title: "Особенности биостатистических методов в\n" +
+            "доклинических исследованиях", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/dorotenko-a.-1.pdf" },
+    { author: "Гущина С.В.", title: "Трудовые функции и оценка трудозатрат провизора в\n" +
+            "организации, осуществляющей доклинические\n" +
+            "исследования, в соответствии с профессиональным\n" +
+            "стандартом ", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/gushhina-s.v..pdf" },
+    { author: "Исакова-Сивак И.Н.", title: "Обоснование безвредности и\n" +
+            "эффективности гриппозных вакцин\n" +
+            "в доклинических исследованиях ", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/isakova_sivak-i.n..pdf" },
+    { author: "Петров Д.В.", title: "Проект вивария –\n" +
+            "этапы, вопросы,\n" +
+            "соответствия", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/petrov-d.v..pdf" },
+    { author: "Попов В.С.", title: "Обеспечивают ли стандартные животные\n" +
+            "воспроизводимый результат?", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/popov-v.s.-2.pdf" },
+    { author: "Макаренко И.Е.", title: "Приведение лаборатории доклинических исследований к\n" +
+            "требованиям GLP: от планирования до получения\n" +
+            "аккредитации", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/makarenko-i.e.-1.pdf" },
+    { author: "Солодовников А.Г.", title: "Отсутствие системы GLP -\n" +
+            "проблемы регистрации по\n" +
+            "правилам ЕАЭС и ЕС", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/solodovnikov-a.g..pdf" },
+    { author: "Акимова М.А.", title: "ОПЫТ ИСПОЛЬЗОВАНИЯ ОБОРУДОВАНИЯ И\n" +
+            "ЭЛЕМЕНТОВ ОБОГАЩЕНИЯ СРЕДЫ ДЛЯ\n" +
+            "СОБАК ПОРОДЫ БИГЛЬ", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/akimova-m.a..pdf" },
+    { author: "Бондарева Е.Д.", title: "Влияние отклонения влажности воздуха на\n" +
+            "здоровье лабораторных животных. Оценка\n" +
+            "риска", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/bondareva-e.d..pdf" },
+    { author: "Гремякова П.", title: "Особенности GLP аудита\n" +
+            "биоаналитической\n" +
+            "лаборатории.", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/gremyakova-p..pdf" },
+    { author: "Ловат М.Л.", title: "Является ли использование\n" +
+            "стандартных сухих кормов\n" +
+            "гарантией\n" +
+            "воспроизводимости данных у\n" +
+            "грызунов?", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/lovat-m.l..pdf" },
+    { author: "Флисюк Е.В.", title: "Актуальный подход к обучению\n" +
+            "уполномоченных лиц по качеству\n" +
+            "Евразийского экономического союза", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/flisyuk-e.v..pdf" },
+    { author: "Ковалева М.А.", title: "ПОДВОДНЫЕ КАМНИ» ПРИ ПОДГОТОВКЕ\n" +
+            "НАУЧНОГО ОТЧЕТА – С ЧЕМ МОЖЕТ\n" +
+            "СТОЛКНУТЬСЯ УЧЕНЫЙ", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/kovaleva-m.a..pdf" },
+    { author: "Ходько С.В.", title: "Реализация программы повышения квалификации в\n" +
+            "соответствии с профессиональным стандартом:\n" +
+            "«Специалист по промышленной фармации в области\n" +
+            "исследований лекарственных средств»", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/hodko-s.v..pdf" },
+    { author: "Шохин И.Е.", title: "GLP в биоаналитической\n" +
+            "лаборатории: надлежащая и\n" +
+            "ненадлежащая практика", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/shohin-i..pdf" },
+    { author: "Торопова Я.Г. Розова И.О.", title: "Опыт реализации образовательных программ\n" +
+            "в сфере доклинических исследований\n" +
+            "в ФГБУ «НМИЦ им В.А. Алмазова» Минздрава России", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/toropova-ya.g..pdf" },
+    { author: "Попов В.С. Кушнир Е.А.", title: "Учебный курс для исследователей, работающих с лабораторными животными", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/popov-v.s.-3.pdf" },
+    { author: "Ивкин Д.Ю.", title: "Доклинические исследования от\n" +
+            "студенческой скамьи к кадрам высшей\n" +
+            "категории", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/ivkin-d.yu..pdf" },
+    { author: "Муразов Я.Г.", title: "Доклинические испытания перфузионных технологий: дьявол в\n" +
+            "деталях", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/murazov-ya.g..pdf" },
+    { author: "Шипаева Е.В.", title: "Трансляционные аспекты\n" +
+            "использования данных\n" +
+            "доклинических исследований", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/shipaeva-e.v..pdf" },
+    { author: "Макарова М.Н.", title: "ПРОБЛЕМЫ АНЕСТЕЗИИ ЭКСПЕРИМЕНТАЛЬНЫХ\n" +
+            "ЖИВОТНЫХ", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/makarova-m.n..pdf" },
+    { author: "Саяхов Р.", title: "Предсказательная токсикология с использованием (Q) SAR: эффективное\n" +
+            "использование различных моделей для разнообразных токсических\n" +
+            "эффектов", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/sayahov-r..pdf" },
+    { author: "Зайцева М.А.", title: "Эволюция требований к качеству\n" +
+            "доклинических исследований на примере\n" +
+            "внедрения риск-ориентированного подхода\n" +
+            "при планировании инспекций исследования\n" +
+            "со стороны службы качества", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/zajczeva-m.a..pdf" },
+    { author: "Амстиславская Т.Г. Белова А.С.", title: "Моделирование психопатологий\n" +
+            "на зебраданио:\n" +
+            "черепно-мозговая травма", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/amstislavskaya-t.g..pdf" },
+    { author: "Карал-оглы Д.Д.", title: "Лабораторные приматы\n" +
+            "в медико-биологических\n" +
+            "исследованиях", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/karal-ogly-d.d..pdf" },
+    { author: "Ильинский Н.С.", title: "Исследование токсических поражений\n" +
+            "периферической нервной системы:\n" +
+            "интерпретация и трансляция экспериментальных данных", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/ilinskij-n.s..pdf" },
+    { author: "Устюгов А.А.", title: "Стратегия поиска препаратов для лечения\n" +
+            "нейродегенеративных заболеваний на\n" +
+            "основе трансгенных животных моделей\n" +
+            "протеинопатий", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/ustyugov-a.a..pdf" },
+    { author: "Гущин Я.А.", title: "Особенности проведения\n" +
+            "патоморфологического исследования\n" +
+            "лабораторных животных (на примере мыши) в\n" +
+            "рамках Рекомендации ЕЭК №10", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/gushhin-ya.a..pdf" },
+    { author: "Ковалева М.А.", title: "ЖУРНАЛ «ЛАБОРАТОРНЫЕ\n" +
+            "ЖИВОТНЫЕ ДЛЯ НАУЧНЫХ\n" +
+            "ИССЛЕДОВАНИЙ»", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/kovaleva-m.a._zhurnal.pdf" },
+    { author: "Литвинова Е.А.", title: "История становления и развития\n" +
+            "мониторинга здоровья\n" +
+            "лабораторных животных\n" +
+            "в вивариях РФ", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/litvinova-e.a..pdf" },
+    { author: "Кушнир Е.А.", title: "ОЦЕНКА СТЕПЕНИ ТЯЖЕСТИ ПРОЦЕДУР,\n" +
+            "ПРОВОДИМЫХ НА ЛАБОРАТОРНЫХ ЖИВОТНЫХ", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/kushnir-e.a..pdf" },
+    { author: "Салминьш Д.", title: "Новая линия ИВК-EMERALD", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/salminsh-d..pdf" },
+    { author: "Акимов Д.Ю.", title: "РИСК-ОРИЕНТИРОВАННЫЙ ПОДХОД К\n" +
+            "МОНИТОРИНГУ ЗДОРОВЬЯ\n" +
+            "ЛАБОРАТОРНЫХ ПРИМАТОВ", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/akimov-d.yu..pdf" },
+    { author: "Rogers A.", title: "OECD guidelines and GLP compliance for\n" +
+            "inhalation toxicological studies", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/rogers-a..pdf" },
+    { author: "Александров А.В.", title: "GLP-инжиниринг : от проекта до обслуживания", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/aleksandrov-a.v..pdf" },
+    { author: "Александров А.", title: "Доклиническая разработка генотерапевтических препаратов", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/aleksandrov-a..pdf" },
+    { author: "Васютина М.", title: "Laboratory animals health monitoring:\n" +
+            "from Danio Rerio to mini-pigs\n", pdf: "https://glp-planet.com/wp-content/uploads/2021/09/vasyutina-m_health-monitoring.pdf" },
+    { author: "Фальковский И.В.", title: "Особенности взаимодействия заинтересованных сторон при создании\n" +
+            "контрольных и исследовательских лабораторий.", pdf: "https://glp-planet.com/wp-content/uploads/2021/07/falkovskij-i.v..pdf" },
 ];
+
+function PdfIcon() {
+    return (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+            <polyline points="14,2 14,8 20,8" />
+            <line x1="16" y1="13" x2="8" y2="13" />
+            <line x1="16" y1="17" x2="8" y2="17" />
+            <polyline points="10,9 9,9 8,9" />
+        </svg>
+    );
+}
 
 export default function Conference2021Page() {
     return (
@@ -176,24 +287,30 @@ export default function Conference2021Page() {
                 <section id="materials" className="conf-materials">
                     <div style={{ maxWidth: 1000, margin: "0 auto" }}>
                         <h2 className="conf-section-title">Материалы конференции</h2>
-                        <div className="conf-materials-grid">
+                        <div className="conf-divider" style={{ marginBottom: 40 }} />
+                        <div className="materials-grid">
                             {materials.map((m, i) => (
-                                <div key={i} className="conf-material-card">
-                                    <div className="conf-material-placeholder">
-                                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.4 }}>
-                                            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
-                                            <polyline points="14,2 14,8 20,8" />
-                                            <line x1="16" y1="13" x2="8" y2="13" />
-                                            <line x1="16" y1="17" x2="8" y2="17" />
-                                            <polyline points="10,9 9,9 8,9" />
+                                <a
+                                    key={i}
+                                    href={m.pdf}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="material-card"
+                                >
+                                    <div className="material-card-icon">
+                                        <PdfIcon />
+                                    </div>
+                                    <div className="material-card-body">
+                                        <div className="material-card-title">{m.title}</div>
+                                        <div className="material-card-author">{m.author}</div>
+                                    </div>
+                                    <div className="material-card-arrow">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                             stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                            <path d="M7 17l9.2-9.2M17 17V7H7" />
                                         </svg>
-                                        <span>PDF</span>
                                     </div>
-                                    <div className="conf-material-info">
-                                        <div className="conf-material-author">{m.author}</div>
-                                        <div className="conf-material-title">{m.title}</div>
-                                    </div>
-                                </div>
+                                </a>
                             ))}
                         </div>
                     </div>
@@ -272,37 +389,79 @@ export default function Conference2021Page() {
                     max-width: 220px; max-height: 90px;
                 }
 
+                /* Materials section */
                 .conf-materials {
                     padding: 80px 48px 100px;
                     background: #fff;
                 }
-                .conf-materials .conf-section-title { color: var(--primary); margin-bottom: 36px; }
-                .conf-materials-grid {
-                    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+                .conf-materials .conf-section-title { color: var(--primary); margin-bottom: 16px; }
+                .materials-grid {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 14px;
                 }
-                .conf-material-card {
-                    border: 1px solid rgba(73,100,162,0.08); border-radius: 6px;
-                    overflow: hidden; display: block;
-                    transition: all 0.5s cubic-bezier(0.33,1,0.68,1);
-                    cursor: default;
+                .material-card {
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 18px;
+                    padding: 28px 26px;
+                    background: var(--light, #F5F7FA);
+                    border-radius: 6px;
+                    border: 1px solid rgba(73,100,162,0.08);
+                    text-decoration: none;
+                    transition: all 0.25s ease;
+                    position: relative;
+                    min-height: 120px;
                 }
-                .conf-material-card:hover {
-                    transform: translateY(-4px);
-                    box-shadow: 0 16px 40px rgba(20,27,77,0.08);
-                    border-color: rgba(73,100,162,0.15);
+                .material-card:hover {
+                    border-color: var(--secondary, #4964A2);
+                    box-shadow: 0 6px 20px rgba(20,27,77,0.1);
+                    transform: translateY(-2px);
                 }
-                .conf-material-placeholder {
-                    aspect-ratio: 1.33; background: var(--light);
-                    display: flex; flex-direction: column; align-items: center;
-                    justify-content: center; gap: 8px; color: var(--muted);
-                    font-size: 11px; font-weight: 600; letter-spacing: 2px;
+                .material-card-icon {
+                    flex-shrink: 0;
+                    width: 44px;
+                    height: 44px;
+                    border-radius: 5px;
+                    background: rgba(73,100,162,0.1);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: var(--secondary, #4964A2);
+                    transition: all 0.25s ease;
                 }
-                .conf-material-info { padding: 16px 18px; }
-                .conf-material-author {
-                    font-size: 13px; font-weight: 700; color: var(--primary); margin-bottom: 4px;
+                .material-card:hover .material-card-icon {
+                    background: var(--secondary, #4964A2);
+                    color: #fff;
                 }
-                .conf-material-title {
-                    font-size: 12px; color: #666; line-height: 1.5;
+                .material-card-body {
+                    flex: 1;
+                    min-width: 0;
+                }
+                .material-card-title {
+                    font-size: 15px;
+                    font-weight: 700;
+                    color: var(--primary, #141B4D);
+                    margin-bottom: 6px;
+                    line-height: 1.4;
+                }
+                .material-card-author {
+                    font-size: 13px;
+                    color: #6b7280;
+                    line-height: 1.4;
+                }
+                .material-card:hover .material-card-author {
+                    color: var(--secondary, #4964A2);
+                }
+                .material-card-arrow {
+                    flex-shrink: 0;
+                    color: rgba(73,100,162,0.25);
+                    margin-top: 4px;
+                    transition: all 0.25s;
+                }
+                .material-card:hover .material-card-arrow {
+                    color: var(--secondary, #4964A2);
+                    transform: translate(2px, -2px);
                 }
 
                 @media (max-width: 1024px) {
@@ -311,9 +470,9 @@ export default function Conference2021Page() {
                     .conf-about { padding: 60px 32px; }
                     .conf-sponsors { padding: 60px 32px; }
                     .conf-materials { padding: 60px 32px 80px; }
+                    .materials-grid { grid-template-columns: repeat(2, 1fr); }
                 }
                 @media (max-width: 900px) {
-                    .conf-materials-grid { grid-template-columns: 1fr 1fr; }
                     .conf-sponsors-grid { grid-template-columns: 1fr; max-width: 300px; margin: 0 auto 40px; }
                     .conf-sponsors-extra { grid-template-columns: 1fr; max-width: 300px; margin: 0 auto; }
                 }
@@ -326,8 +485,9 @@ export default function Conference2021Page() {
                     .conf-text { font-size: 14px; }
                     .conf-sponsors { padding: 40px 20px; }
                     .conf-materials { padding: 40px 20px 60px; }
-                    .conf-materials-grid { grid-template-columns: 1fr; }
                     .conf-section-title { font-size: 24px; }
+                    .materials-grid { grid-template-columns: 1fr; gap: 10px; }
+                    .material-card { padding: 22px 20px; min-height: auto; }
                 }
             `}</style>
         </>
