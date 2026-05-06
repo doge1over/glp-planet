@@ -11,7 +11,7 @@ declare global {
     }
 }
 
-export default function BroadcastPage() {
+export default function Page() {
     const containerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -114,14 +114,13 @@ export default function BroadcastPage() {
         }
 
         .bc-player-section {
-          padding: 50px 48px 100px;
-          background: linear-gradient(155deg, #192258 0%, #141B4D 50%, #1A2460 100%);
+          padding: 60px 48px 100px;
+          background: linear-gradient(155deg, #0D1330 0%, #141B4D 50%, #1A2460 100%);
         }
 
         .bc-player-wrap {
           width: 100%;
-          max-width: 960px;
-          margin: 0 auto 28px;
+          margin-bottom: 28px;
           border-radius: 8px;
           overflow: hidden;
           background: #000;
@@ -152,8 +151,6 @@ export default function BroadcastPage() {
           display: flex;
           flex-direction: column;
           gap: 12px;
-          max-width: 960px;
-          margin: 0 auto;
         }
         .bc-info-card {
           display: flex;

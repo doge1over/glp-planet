@@ -121,7 +121,7 @@ export default function Conference2021Page() {
                             </div>
                             <div className="conf-sponsor-item">
                                 <div className="conf-sponsor-label">Бронзовый спонсор</div>
-                                <div className="conf-sponsor-logo"><img src="/images/archive/2021/logo_bronzovyj_sponsor_farmbiolajn-1.png" alt="Фармбиолайн" /></div>
+                                <div className="conf-sponsor-logo"><img src="/images/sponsors/logo_bronzovyj_sponsor_farmbiolajn-1.png" alt="Фармбиолайн" /></div>
                             </div>
                         </div>
                         <div className="conf-sponsors-extra">

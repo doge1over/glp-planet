@@ -153,6 +153,18 @@ export default function RegistrationPage() {
                                         Лектор участвует без организационного взноса. Для регистрации в качестве лектора
                                         направьте тему доклада и его краткое описание на почту организационного комитета.
                                     </p>
+
+                                    {/* Notice for closed submissions */}
+                                    <div className="reg-card-notice">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                             strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                                            <circle cx="12" cy="12" r="10" />
+                                            <line x1="12" y1="8" x2="12" y2="12" />
+                                            <circle cx="12" cy="16" r="0.6" fill="currentColor" />
+                                        </svg>
+                                        <span>Приём докладов на конференцию GLP-PLANET закрыт!</span>
+                                    </div>
+
                                     <div style={{ marginTop: "auto", paddingTop: 24 }}>
                                         <p style={{ fontSize: 13, color: "rgba(255,255,255,0.65)", lineHeight: 1.7, marginBottom: 14, textAlign: "center" }}>
                                             Для регистрации напишите на почту
@@ -226,6 +238,26 @@ export default function RegistrationPage() {
           font-size: 14px; color: #444; line-height: 1.7;
         }
 
+        .reg-card-notice {
+          margin-top: 18px;
+          display: flex;
+          align-items: flex-start;
+          gap: 10px;
+          padding: 12px 14px;
+          background: rgba(107,130,196,0.18);
+          border-left: 3px solid #6B82C4;
+          border-radius: 4px;
+          color: #fff;
+          font-size: 13px;
+          font-weight: 600;
+          line-height: 1.5;
+        }
+        .reg-card-notice svg {
+          flex-shrink: 0;
+          margin-top: 2px;
+          color: #6B82C4;
+        }
+
 
         @media (max-width: 1024px) {
           .reg-hero { padding: 120px 32px 48px; }
@@ -240,6 +272,7 @@ export default function RegistrationPage() {
           .reg-title { font-size: 28px; }
           .reg-content { padding: 40px 20px 48px; }
           .reg-card { padding: 28px 24px 24px; }
+          .reg-card-notice { font-size: 12px; padding: 10px 12px; }
         }
       `}</style>
         </>

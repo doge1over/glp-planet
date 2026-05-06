@@ -12,7 +12,16 @@ const partners = [
 function Card({ p }: { p: typeof partners[0] }) {
     const inner = (
         <>
-            <Image src={p.img} alt={p.name} width={200} height={80} className="partner-logo" style={{ width: "auto", height: "auto", maxWidth: 200, maxHeight: 80, objectFit: "contain" }} />
+            <div className="partner-logo-wrap">
+                <Image
+                    src={p.img}
+                    alt={p.name}
+                    width={200}
+                    height={80}
+                    className="partner-logo"
+                    style={{ width: "auto", height: "auto", maxWidth: 200, maxHeight: 80, objectFit: "contain" }}
+                />
+            </div>
             <div className="partner-name">{p.name}</div>
         </>
     );
@@ -41,20 +50,49 @@ export default function Partners() {
 
             <style>{`
         .partners-section { padding: 110px 48px; background: var(--white); }
-        .partners-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .partners-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 20px;
+          align-items: stretch;
+        }
+        /* Reveal wrappers become grid items — force them to fill their cell */
+        .partners-grid > * { height: 100%; display: flex; }
+
         .partner-card {
-          display: flex; flex-direction: column; align-items: center; justify-content: center;
-          padding: 40px 32px 28px; background: var(--light); border-radius: 4px;
+          display: flex; flex-direction: column; align-items: center;
+          padding: 40px 32px 32px; background: var(--light); border-radius: 4px;
           border: 1px solid rgba(73,100,162,0.06); text-decoration: none; text-align: center;
-          transition: all 0.5s cubic-bezier(0.33, 1, 0.68, 1); min-height: 200px;
+          transition: all 0.5s cubic-bezier(0.33, 1, 0.68, 1);
+          width: 100%;
+          height: 100%;
+          min-height: 220px;
         }
         .partner-card:hover {
           transform: translateY(-5px); box-shadow: 0 20px 44px rgba(20,27,77,0.08);
           border-color: rgba(73,100,162,0.12);
         }
-        .partner-logo { margin-bottom: 20px; transition: opacity 0.4s; }
+
+        /* Fixed logo zone → logos sit on the same visual line across all cards */
+        .partner-logo-wrap {
+          height: 90px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 20px;
+          flex-shrink: 0;
+        }
+        .partner-logo { transition: opacity 0.4s; }
         .partner-card:hover .partner-logo { opacity: 0.85; }
-        .partner-name { font-size: 13px; font-weight: 600; color: var(--primary); line-height: 1.5; }
+
+        /* Name fills remaining space and centers regardless of line count */
+        .partner-name {
+          font-size: 13px; font-weight: 600; color: var(--primary); line-height: 1.5;
+          flex: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
 
         @media (max-width: 1024px) {
           .partners-section { padding: 80px 32px; }
@@ -65,7 +103,8 @@ export default function Partners() {
         @media (max-width: 600px) {
           .partners-section { padding: 60px 20px; }
           .partners-grid { grid-template-columns: 1fr; }
-          .partner-card { min-height: 160px; padding: 28px 20px 20px; }
+          .partner-card { min-height: 180px; padding: 28px 20px 24px; }
+          .partner-logo-wrap { height: 70px; margin-bottom: 16px; }
         }
       `}</style>
         </section>

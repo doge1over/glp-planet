@@ -56,13 +56,25 @@ export default function Hero() {
                         10 тематических сессий, мастер-классы и круглые столы. Очное и онлайн участие.
                     </p>
 
-                    <div className="hero-buttons" style={{ animation: "fadeUp 0.65s ease-out 0.32s both" }}>
-                        <a href="/registration" className="btn-primary" style={{ textDecoration: "none" }}>
-                            <span>Регистрация</span><IconArrow />
-                        </a>
-                        <a href="/docs/info-letter-2026.pdf" target="_blank" rel="noopener noreferrer" className="btn-outline" style={{ textDecoration: "none" }}>
-                            <IconFile /><span>Информационное письмо</span>
-                        </a>
+                    <div className="hero-buttons-wrap" style={{ animation: "fadeUp 0.65s ease-out 0.30s both" }}>
+                        <div className="hero-notice">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                 strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <line x1="12" y1="8" x2="12" y2="12" />
+                                <circle cx="12" cy="16" r="0.6" fill="currentColor" />
+                            </svg>
+                            <span>Приём докладов на конференцию GLP-PLANET закрыт!</span>
+                        </div>
+
+                        <div className="hero-buttons">
+                            <a href="/registration" className="btn-primary" style={{ textDecoration: "none" }}>
+                                <span>Регистрация</span><IconArrow />
+                            </a>
+                            <a href="/docs/info-letter-2026.pdf" target="_blank" rel="noopener noreferrer" className="btn-outline" style={{ textDecoration: "none" }}>
+                                <IconFile /><span>Информационное письмо</span>
+                            </a>
+                        </div>
                     </div>
 
                 </div>
@@ -119,7 +131,25 @@ export default function Hero() {
         }
         .hero-desc {
           font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.7;
-          max-width: 520px; margin-bottom: 40px;
+          max-width: 520px; margin-bottom: 28px;
+        }
+        .hero-buttons-wrap {
+          display: inline-flex; flex-direction: column; gap: 0;
+          width: fit-content; max-width: 100%;
+        }
+        .hero-notice {
+          display: flex; align-items: center; gap: 10px;
+          padding: 12px 18px; margin-bottom: 16px;
+          background: rgba(107,130,196,0.15);
+          border: 1px solid rgba(107,130,196,0.3);
+          border-left: 3px solid #6B82C4;
+          border-radius: 4px;
+          color: #fff;
+          font-size: 13px; font-weight: 600; line-height: 1.5;
+          width: 100%; box-sizing: border-box;
+        }
+        .hero-notice svg {
+          flex-shrink: 0; color: #6B82C4;
         }
         .hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
 
@@ -157,7 +187,8 @@ export default function Hero() {
           .hero-grid { padding: 100px 24px 120px; }
           .hero-title-light, .hero-title-bold { font-size: 36px; }
           .hero-subtitle { font-size: 14px; }
-          .hero-desc { font-size: 13px; margin-bottom: 32px; }
+          .hero-desc { font-size: 13px; margin-bottom: 22px; }
+          .hero-notice { font-size: 12px; padding: 10px 14px; }
           .hero-countdown { bottom: 28px; gap: 24px; }
           .hero-countdown-value { font-size: 30px; }
         }
@@ -169,7 +200,11 @@ export default function Hero() {
           .hero-date-badge { margin-bottom: 24px; }
           .hero-date-badge span { font-size: 9px; letter-spacing: 1.5px; }
           .hero-subtitle { font-size: 13px; max-width: 100%; }
-          .hero-desc { font-size: 12px; margin-bottom: 28px; max-width: 100%; }
+          .hero-desc { font-size: 12px; margin-bottom: 18px; max-width: 100%; }
+          .hero-notice {
+            font-size: 12px; padding: 10px 14px; margin-bottom: 20px;
+            max-width: 100%; align-items: flex-start;
+          }
           .hero-buttons { flex-direction: column; }
           .hero-countdown { bottom: 20px; gap: 16px; padding: 0 16px; }
           .hero-countdown-value { font-size: 26px; letter-spacing: 1px; }
@@ -180,6 +215,7 @@ export default function Hero() {
         @media (max-width: 380px) {
           .hero-grid { padding: 90px 16px 100px; }
           .hero-title-light, .hero-title-bold { font-size: 26px; }
+          .hero-notice { font-size: 11px; }
           .hero-countdown { gap: 12px; bottom: 16px; padding: 0 12px; }
           .hero-countdown-value { font-size: 22px; }
           .hero-countdown-label { font-size: 7px; letter-spacing: 1px; }

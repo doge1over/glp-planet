@@ -8,6 +8,7 @@ const navItems = [
     { href: "/", label: "Главная" },
     { href: "/consultant", label: "Консультант" },
     { href: "/registration", label: "Регистрация" },
+    { href: "/broadcast", label: "Трансляция" },
     { href: "/archive", label: "Архив" },
     { href: "/contacts", label: "Контакты" },
 ];
@@ -56,7 +57,7 @@ export default function Header() {
         }
         .header-nav-link:hover::after { width: 100%; }
 
-        .header-desktop-nav { display: flex; align-items: center; gap: 36px; }
+        .header-desktop-nav { display: flex; align-items: center; gap: 30px; }
         .header-date {
           color: rgba(255,255,255,0.75); font-size: 10px; font-weight: 500;
           letter-spacing: 1.5px; text-transform: uppercase; white-space: nowrap;

@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Program from "@/components/Program";
 import Stats from "@/components/Stats";
-import Partners from "@/components/Partners";
+import Sponsors from "@/components/Sponsors";
 import Footer from "@/components/Footer";
 
 export default function HomePage() {
@@ -14,7 +14,7 @@ export default function HomePage() {
             <About />
             <Program />
             <Stats />
-            <Partners />
+            <Sponsors />
             <Footer />
         </>
     );
