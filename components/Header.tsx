@@ -8,6 +8,7 @@ const navItems = [
     { href: "/", label: "Главная" },
     { href: "/consultant", label: "Консультант" },
     { href: "/registration", label: "Регистрация" },
+    { href: "/broadcast", label: "Трансляция" },
     { href: "/archive", label: "Архив" },
     { href: "/contacts", label: "Контакты" },
 ];
@@ -56,19 +57,11 @@ export default function Header() {
         }
         .header-nav-link:hover::after { width: 100%; }
 
-        .header-desktop-nav { display: flex; align-items: center; gap: 36px; }
+        .header-desktop-nav { display: flex; align-items: center; gap: 30px; }
         .header-date {
           color: rgba(255,255,255,0.75); font-size: 10px; font-weight: 500;
           letter-spacing: 1.5px; text-transform: uppercase; white-space: nowrap;
         }
-
-        .header-logo-link {
-          display: flex;
-          align-items: center;
-          text-decoration: none;
-          transition: opacity 0.3s;
-        }
-        .header-logo-link:hover { opacity: 0.75; }
 
         .header-mobile-toggle {
           display: none;
@@ -124,7 +117,7 @@ export default function Header() {
             {/* Header content */}
             <header className="header-inner">
                 <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                    <Link href="/" className="header-logo-link">
+                    <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center" }}>
                         <Image
                             src="/images/logo.png"
                             alt="GLP-PLANET"
@@ -135,21 +128,13 @@ export default function Header() {
                         />
                     </Link>
                     <div style={{ width: 1, height: 28, background: "rgba(255,255,255,0.15)" }} />
-                    <a
-                        href="https://ruslasa.org/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="header-logo-link"
-                        aria-label="Rus-LASA"
-                    >
-                        <Image
-                            src="/images/RusLASA_logo.png"
-                            alt="Rus-LASA"
-                            width={100}
-                            height={50}
-                            style={{ width: "auto", height: 50, objectFit: "contain" }}
-                        />
-                    </a>
+                    <Image
+                        src="/images/RusLASA_logo.png"
+                        alt="Rus-LASA"
+                        width={100}
+                        height={50}
+                        style={{ width: "auto", height: 50, objectFit: "contain" }}
+                    />
                 </div>
 
                 <div className="header-date">

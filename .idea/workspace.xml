@@ -4,36 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f52157a0-c438-480c-904d-f81c73af3430" name="Changes" comment="6">
+    <list default="true" id="f52157a0-c438-480c-904d-f81c73af3430" name="Changes" comment="7">
+      <change afterPath="$PROJECT_DIR$/app/broadcast/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/sponsors/Р-Фарм.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/apple-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/archive/2020/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/archive/2021/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/archive/2022/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/archive/2023/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/archive/2024/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/archive/2025/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/archive/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/broadcast/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/consultant/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/contacts/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/globals.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/registration/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ConsultantSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ConsultantSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Counter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Counter.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Footer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Hero.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Hero.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Icons.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Icons.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Logo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Logo.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Partners.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Partners.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Program.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Program.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Sponsors.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Sponsors.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/docs/info-letter-2026.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/public/docs/info-letter-2026.pdf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +53,7 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
     &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/GLP-Planet/app/broadcast&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/GLP-Planet/app/Broadcast&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -90,16 +67,16 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\GLP-Planet\app\Broadcast" />
       <recent name="D:\GLP-Planet\app\broadcast" />
       <recent name="D:\GLP-Planet\components" />
       <recent name="D:\GLP-Planet\public\docs" />
       <recent name="D:\GLP-Planet\app\archive\2025" />
-      <recent name="D:\GLP-Planet\app\archive\2024" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\GLP-Planet\public\images\sponsors" />
       <recent name="D:\GLP-Planet" />
       <recent name="D:\GLP-Planet\app" />
-      <recent name="D:\GLP-Planet\public\images\sponsors" />
       <recent name="D:\GLP-Planet\public\images" />
       <recent name="D:\GLP-Planet\components" />
     </key>
@@ -157,6 +134,7 @@
       <workItem from="1777990785368" duration="666000" />
       <workItem from="1778068201385" duration="76000" />
       <workItem from="1778073687474" duration="1614000" />
+      <workItem from="1778079639336" duration="2844000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -246,7 +224,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775459477420</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="7">
+      <option name="closed" value="true" />
+      <created>1778079827214</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1778079827214</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -269,7 +255,8 @@
     <MESSAGE value="3" />
     <MESSAGE value="4" />
     <MESSAGE value="5" />
-    <option name="LAST_COMMIT_MESSAGE" value="5" />
+    <MESSAGE value="7" />
+    <option name="LAST_COMMIT_MESSAGE" value="7" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

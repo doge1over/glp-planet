@@ -8,6 +8,7 @@ const navItems = [
     { href: "/", label: "Главная" },
     { href: "/consultant", label: "Консультант" },
     { href: "/registration", label: "Регистрация" },
+    { href: "/broadcast", label: "Трансляция" },
     { href: "/archive", label: "Архив" },
     { href: "/contacts", label: "Контакты" },
 ];
@@ -21,15 +22,7 @@ export default function Footer() {
                         <div style={{ marginBottom: 18, display: "flex", alignItems: "center", gap: 16 }}>
                             <Image src="/images/logo.png" alt="GLP-PLANET" width={160} height={80} style={{ width: "auto", height: 80, objectFit: "contain" }} />
                             <div style={{ width: 1, height: 40, background: "rgba(255,255,255,0.12)" }} />
-                            <a
-                                href="https://ruslasa.org/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="footer-logo-link"
-                                aria-label="Rus-LASA"
-                            >
-                                <Image src="/images/RusLASA_logo.png" alt="Rus-LASA" width={160} height={80} style={{ width: "auto", height: 80, objectFit: "contain" }} />
-                            </a>
+                            <Image src="/images/RusLASA_logo.png" alt="Rus-LASA" width={160} height={80} style={{ width: "auto", height: 80, objectFit: "contain" }} />
                         </div>
                         <p style={{ lineHeight: 1.8, fontSize: 13, maxWidth: 360 }}>
                             Конференция в области надлежащей лабораторной практики, фармакологии и доклинических исследований.
@@ -88,11 +81,6 @@ export default function Footer() {
           transition: color 0.3s; display: flex; align-items: center; gap: 8px;
         }
         .footer-contact-link:hover { color: #fff; }
-        .footer-logo-link {
-          display: inline-flex; align-items: center;
-          transition: opacity 0.3s;
-        }
-        .footer-logo-link:hover { opacity: 0.75; }
 
         @media (max-width: 1024px) {
           .footer-section { padding: 48px 32px 24px; }

@@ -36,7 +36,8 @@ const tiers: Tier[] = [
     {
         label: "Спонсоры",
         sponsors: [
-            { name: "ТехноИнфо", img: "/images/sponsors/ТехноИнфо_LOGO_2024 (5).png", href: "https://technoinfo.ru/" }
+            { name: "ТехноИнфо", img: "/images/sponsors/ТехноИнфо_LOGO_2024 (5).png", href: "https://technoinfo.ru/" },
+            { name: "Группа компаний «Р-Фарм»", img: "/images/sponsors/Р-Фарм.png", href: "https://www.r-pharm.com" },
         ],
         speed: 35,
     },
