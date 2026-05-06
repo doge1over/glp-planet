@@ -1,203 +1,110 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import Script from "next/script";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Link from "next/link";
+import Image from "next/image";
+import { IconMail, IconPhone, IconChevron } from "./Icons";
 
-declare global {
-    interface Window {
-        initIframe?: (id: string) => void;
-    }
-}
+const navItems = [
+    { href: "/", label: "Главная" },
+    { href: "/consultant", label: "Консультант" },
+    { href: "/registration", label: "Регистрация" },
+    { href: "/archive", label: "Архив" },
+    { href: "/contacts", label: "Контакты" },
+];
 
-export default function BroadcastPage() {
-    const containerRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        // Set custom attributes that the Mashroom script reads
-        const el = containerRef.current;
-        if (!el) return;
-
-        el.setAttribute("iframe-name", "pml-iframe-dsHlHhQP-platform");
-        el.setAttribute("src", "https://embed-cdn.mashroom.online/?hash=dsHlHhQP");
-        el.setAttribute("mode", "platform");
-        el.setAttribute("activity-id", "10184");
-
-        const containerId = "pml-iframe-container-dsHlHhQP-platform";
-
-        // Try to init immediately, otherwise poll until the script loads
-        const tryInit = () => {
-            if (window.initIframe) {
-                window.initIframe(containerId);
-                return true;
-            }
-            return false;
-        };
-
-        if (!tryInit()) {
-            const intervalId = setInterval(() => {
-                if (tryInit()) clearInterval(intervalId);
-            }, 50);
-            return () => clearInterval(intervalId);
-        }
-    }, []);
-
+export default function Footer() {
     return (
-        <>
-            <Header />
-            <main style={{ minHeight: "100vh" }}>
-                <section className="bc-hero">
-                    <div className="bc-container">
-                        <div className="bc-label">Онлайн</div>
-                        <h1 className="bc-title">Трансляция конференции</h1>
-                        <p className="bc-subtitle">
-                            Прямая трансляция и записи сессий VII Международной научно-практической конференции GLP-PLANET
+        <footer id="contacts" className="footer-section">
+            <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+                <div className="footer-grid">
+                    <div>
+                        <div style={{ marginBottom: 18, display: "flex", alignItems: "center", gap: 16 }}>
+                            <Image src="/images/logo.png" alt="GLP-PLANET" width={160} height={80} style={{ width: "auto", height: 80, objectFit: "contain" }} />
+                            <div style={{ width: 1, height: 40, background: "rgba(255,255,255,0.12)" }} />
+                            <a
+                                href="https://ruslasa.org/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="footer-logo-link"
+                                aria-label="Rus-LASA"
+                            >
+                                <Image src="/images/RusLASA_logo.png" alt="Rus-LASA" width={160} height={80} style={{ width: "auto", height: 80, objectFit: "contain" }} />
+                            </a>
+                        </div>
+                        <p style={{ lineHeight: 1.8, fontSize: 13, maxWidth: 360 }}>
+                            Конференция в области надлежащей лабораторной практики, фармакологии и доклинических исследований.
                         </p>
                     </div>
-                </section>
 
-                <section className="bc-player-section">
-                    <div className="bc-container">
-                        <div className="bc-player-wrap">
-                            <div className="bc-player-frame">
-                                <div
-                                    ref={containerRef}
-                                    id="pml-iframe-container-dsHlHhQP-platform"
-                                />
-                            </div>
-                        </div>
-
-                        <div className="bc-info">
-                            <div className="bc-info-card">
-                                <div className="bc-info-icon">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                         strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                                        <circle cx="12" cy="12" r="10" />
-                                        <line x1="12" y1="6" x2="12" y2="12" />
-                                        <line x1="12" y1="12" x2="16" y2="14" />
-                                    </svg>
-                                </div>
-                                <div className="bc-info-text">
-                                    Если плеер не загружается — обновите страницу или попробуйте отключить блокировщик рекламы
-                                </div>
-                            </div>
+                    <div>
+                        <h4 className="footer-heading">Контакты</h4>
+                        <div style={{ display: "flex", flexDirection: "column", gap: 11, fontSize: 13 }}>
+                            <a href="mailto:sci.secretary@glp-planet.com" className="footer-contact-link">
+                                <IconMail /> sci.secretary@glp-planet.com
+                            </a>
+                            <a href="tel:+79810410145" className="footer-contact-link">
+                                <IconPhone /> +7 (981) 041-01-45
+                            </a>
                         </div>
                     </div>
-                </section>
-            </main>
-            <Footer />
 
-            <Script
-                src="https://embed-cdn.mashroom.online/iframe/js/index.js"
-                strategy="afterInteractive"
-            />
+                    <div>
+                        <h4 className="footer-heading">Разделы</h4>
+                        <div style={{ display: "flex", flexDirection: "column", gap: 9 }}>
+                            {navItems.map((item) => (
+                                <Link key={item.href} href={item.href} className="footer-link">
+                                    <IconChevron />{item.label}
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+
+                <div className="footer-bottom">
+                    <div>© 2026 GLP-PLANET</div>
+                    <div>Совместно с Rus-LASA</div>
+                </div>
+            </div>
 
             <style>{`
-        .bc-container { max-width: 1200px; margin: 0 auto; }
-
-        .bc-hero {
-          padding: 140px 48px 60px;
-          background: linear-gradient(155deg, #080C24 0%, #141B4D 45%, #192258 100%);
+        .footer-section { padding: 64px 48px 28px; background: var(--dark); color: rgba(255,255,255,0.6); }
+        .footer-heading {
+          color: #fff; font-weight: 600; margin-bottom: 16px;
+          font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
         }
-        .bc-label {
-          font-size: 11px; color: #6B82C4; font-weight: 600;
-          text-transform: uppercase; letter-spacing: 3px; margin-bottom: 12px;
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 44px; margin-bottom: 48px; }
+        .footer-bottom {
+          border-top: 1px solid rgba(255,255,255,0.08); padding-top: 18px;
+          display: flex; justify-content: space-between; align-items: center;
+          flex-wrap: wrap; gap: 10px; font-size: 11px; color: rgba(255,255,255,0.4);
         }
-        .bc-title {
-          font-size: 42px; font-weight: 700; color: #fff;
-          line-height: 1.2; margin-bottom: 16px;
+        .footer-link {
+          color: rgba(255,255,255,0.55); font-size: 13px; text-decoration: none;
+          transition: color 0.3s; display: flex; align-items: center; gap: 4px;
         }
-        .bc-subtitle {
-          font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.7;
-          max-width: 600px;
+        .footer-link:hover { color: #fff; }
+        .footer-contact-link {
+          color: rgba(255,255,255,0.6); text-decoration: none;
+          transition: color 0.3s; display: flex; align-items: center; gap: 8px;
         }
-
-        .bc-player-section {
-          padding: 50px 48px 100px;
-          background: linear-gradient(155deg, #192258 0%, #141B4D 50%, #1A2460 100%);
+        .footer-contact-link:hover { color: #fff; }
+        .footer-logo-link {
+          display: inline-flex; align-items: center;
+          transition: opacity 0.3s;
         }
-
-        .bc-player-wrap {
-          width: 100%;
-          max-width: 960px;
-          margin: 0 auto 28px;
-          border-radius: 8px;
-          overflow: hidden;
-          background: #000;
-          box-shadow: 0 30px 80px rgba(0,0,0,0.4);
-          border: 1px solid rgba(107,130,196,0.15);
-        }
-
-        /* Responsive 16:9 frame */
-        .bc-player-frame {
-          position: relative;
-          width: 100%;
-          aspect-ratio: 16 / 9;
-        }
-        .bc-player-frame > div {
-          position: absolute;
-          inset: 0;
-          width: 100%;
-          height: 100%;
-        }
-        .bc-player-frame iframe {
-          width: 100% !important;
-          height: 100% !important;
-          border: 0;
-          display: block;
-        }
-
-        .bc-info {
-          display: flex;
-          flex-direction: column;
-          gap: 12px;
-          max-width: 960px;
-          margin: 0 auto;
-        }
-        .bc-info-card {
-          display: flex;
-          align-items: flex-start;
-          gap: 14px;
-          padding: 16px 20px;
-          background: rgba(73,100,162,0.1);
-          border: 1px solid rgba(107,130,196,0.18);
-          border-left: 3px solid #6B82C4;
-          border-radius: 4px;
-        }
-        .bc-info-icon {
-          flex-shrink: 0;
-          width: 36px; height: 36px;
-          border-radius: 50%;
-          display: flex; align-items: center; justify-content: center;
-          background: rgba(107,130,196,0.18);
-          color: #6B82C4;
-        }
-        .bc-info-text {
-          font-size: 13px;
-          color: rgba(255,255,255,0.7);
-          line-height: 1.6;
-          padding-top: 7px;
-        }
+        .footer-logo-link:hover { opacity: 0.75; }
 
         @media (max-width: 1024px) {
-          .bc-hero { padding: 120px 32px 48px; }
-          .bc-title { font-size: 34px; }
-          .bc-player-section { padding: 48px 32px 80px; }
+          .footer-section { padding: 48px 32px 24px; }
+        }
+        @media (max-width: 900px) {
+          .footer-grid { grid-template-columns: 1fr 1fr; }
         }
         @media (max-width: 600px) {
-          .bc-hero { padding: 100px 20px 36px; }
-          .bc-label { font-size: 10px; letter-spacing: 2px; }
-          .bc-title { font-size: 26px; margin-bottom: 12px; }
-          .bc-subtitle { font-size: 14px; line-height: 1.65; }
-          .bc-player-section { padding: 32px 16px 56px; }
-          .bc-player-wrap { border-radius: 6px; margin-bottom: 20px; }
-          .bc-info-card { padding: 14px 16px; gap: 12px; }
-          .bc-info-icon { width: 32px; height: 32px; }
-          .bc-info-icon svg { width: 16px; height: 16px; }
-          .bc-info-text { font-size: 12px; padding-top: 5px; }
+          .footer-section { padding: 40px 20px 20px; }
+          .footer-grid { grid-template-columns: 1fr; gap: 32px; }
         }
       `}</style>
-        </>
+        </footer>
     );
 }
