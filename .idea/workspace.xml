@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f52157a0-c438-480c-904d-f81c73af3430" name="Changes" comment="7">
-      <change afterPath="$PROJECT_DIR$/app/broadcast/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/sponsors/Р-Фарм.png" afterDir="false" />
+    <list default="true" id="f52157a0-c438-480c-904d-f81c73af3430" name="Changes" comment="8">
+      <change afterPath="$PROJECT_DIR$/public/images/sponsors/labneo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Sponsors.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Sponsors.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +50,7 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
     &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/GLP-Planet/app/Broadcast&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/GLP-Planet/public/images/sponsors&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -67,11 +64,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\GLP-Planet\public\images\sponsors" />
       <recent name="D:\GLP-Planet\app\Broadcast" />
       <recent name="D:\GLP-Planet\app\broadcast" />
       <recent name="D:\GLP-Planet\components" />
       <recent name="D:\GLP-Planet\public\docs" />
-      <recent name="D:\GLP-Planet\app\archive\2025" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\GLP-Planet\public\images\sponsors" />
@@ -134,7 +131,9 @@
       <workItem from="1777990785368" duration="666000" />
       <workItem from="1778068201385" duration="76000" />
       <workItem from="1778073687474" duration="1614000" />
-      <workItem from="1778079639336" duration="2844000" />
+      <workItem from="1778079639336" duration="2872000" />
+      <workItem from="1778157272101" duration="53000" />
+      <workItem from="1778170435464" duration="1602000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -232,7 +231,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778079827214</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="8">
+      <option name="closed" value="true" />
+      <created>1778103826212</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1778103826212</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -256,7 +263,8 @@
     <MESSAGE value="4" />
     <MESSAGE value="5" />
     <MESSAGE value="7" />
-    <option name="LAST_COMMIT_MESSAGE" value="7" />
+    <MESSAGE value="8" />
+    <option name="LAST_COMMIT_MESSAGE" value="8" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
