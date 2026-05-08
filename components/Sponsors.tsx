@@ -29,7 +29,8 @@ const tiers: Tier[] = [
     {
         label: "Золотые спонсоры",
         sponsors: [
-            { name: "БиоГен-Аналитика", img: "/images/sponsors/@logo.png", href: "https://bga.ru/" }
+            { name: "БиоГен-Аналитика", img: "/images/sponsors/@logo.png", href: "https://bga.ru/" },
+            { name: "БиоЛайн", img: "/images/sponsors/BL_rus_LOGO.png", href: " https://bioline.ru/" }
         ],
         speed: 32,
     },

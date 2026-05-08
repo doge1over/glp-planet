@@ -53,7 +53,7 @@ export default function Hero() {
                         Совместно с Русской ассоциацией специалистов по лабораторным животным Rus-LASA
                     </p>
                     <p className="hero-desc" style={{ animation: "fadeUp 0.65s ease-out 0.28s both" }}>
-                        10 тематических сессий, мастер-классы и круглые столы. Очное и онлайн участие.
+                        12 тематических сессий, мастер-классы и круглые столы. Очное и онлайн участие.
                     </p>
 
                     <div className="hero-buttons-wrap" style={{ animation: "fadeUp 0.65s ease-out 0.30s both" }}>

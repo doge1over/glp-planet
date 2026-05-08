@@ -5,7 +5,7 @@ import Counter from "./Counter";
 
 const stats: ({ n: number; s: string; l: string; roman?: undefined } | { roman: string; l: string; n?: undefined; s?: undefined })[] = [
     { roman: "VII", l: "Конференция" },
-    { n: 10, s: "", l: "Сессий" },
+    { n: 12, s: "", l: "Сессий" },
     { n: 3, s: "", l: "Дня программы" },
     { n: 500, s: "+", l: "Участников" },
 ];
