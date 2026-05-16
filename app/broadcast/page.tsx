@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import Script from "next/script";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ProtectedVideos from "@/components/ProtectedVideos";
 
 declare global {
     interface Window {
@@ -85,6 +86,8 @@ export default function BroadcastPage() {
                         </div>
                     </div>
                 </section>
+
+                <ProtectedVideos />
             </main>
             <Footer />
 

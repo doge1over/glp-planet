@@ -20,9 +20,13 @@ export default function Footer() {
                 <div className="footer-grid">
                     <div>
                         <div style={{ marginBottom: 18, display: "flex", alignItems: "center", gap: 16 }}>
-                            <Image src="/images/logo.png" alt="GLP-PLANET" width={160} height={80} style={{ width: "auto", height: 80, objectFit: "contain" }} />
+                            <Link href="/" className="footer-logo-link" style={{ display: "flex" }}>
+                                <Image src="/images/logo.png" alt="GLP-PLANET" width={160} height={80} style={{ width: "auto", height: 80, objectFit: "contain" }} />
+                            </Link>
                             <div style={{ width: 1, height: 40, background: "rgba(255,255,255,0.12)" }} />
-                            <Image src="/images/RusLASA_logo.png" alt="Rus-LASA" width={160} height={80} style={{ width: "auto", height: 80, objectFit: "contain" }} />
+                            <a href="https://ruslasa.org/" target="_blank" rel="noopener noreferrer" className="footer-logo-link" style={{ display: "flex" }}>
+                                <Image src="/images/RusLASA_logo.png" alt="Rus-LASA" width={160} height={80} style={{ width: "auto", height: 80, objectFit: "contain" }} />
+                            </a>
                         </div>
                         <p style={{ lineHeight: 1.8, fontSize: 13, maxWidth: 360 }}>
                             Конференция в области надлежащей лабораторной практики, фармакологии и доклинических исследований.
@@ -61,6 +65,12 @@ export default function Footer() {
 
             <style>{`
         .footer-section { padding: 64px 48px 28px; background: var(--dark); color: rgba(255,255,255,0.6); }
+        .footer-logo-link img {
+          transition: opacity 0.3s ease;
+        }
+        .footer-logo-link:hover img {
+          opacity: 0.7;
+        }
         .footer-heading {
           color: #fff; font-weight: 600; margin-bottom: 16px;
           font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;

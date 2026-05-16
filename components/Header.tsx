@@ -58,6 +58,12 @@ export default function Header() {
         .header-nav-link:hover::after { width: 100%; }
 
         .header-desktop-nav { display: flex; align-items: center; gap: 30px; }
+        .header-logo-link img {
+          transition: opacity 0.3s ease;
+        }
+        .header-logo-link:hover img {
+          opacity: 0.7;
+        }
         .header-date {
           color: rgba(255,255,255,0.75); font-size: 10px; font-weight: 500;
           letter-spacing: 1.5px; text-transform: uppercase; white-space: nowrap;
@@ -117,7 +123,7 @@ export default function Header() {
             {/* Header content */}
             <header className="header-inner">
                 <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                    <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center" }}>
+                    <Link href="/" className="header-logo-link" style={{ textDecoration: "none", display: "flex", alignItems: "center" }}>
                         <Image
                             src="/images/logo.png"
                             alt="GLP-PLANET"
@@ -128,13 +134,15 @@ export default function Header() {
                         />
                     </Link>
                     <div style={{ width: 1, height: 28, background: "rgba(255,255,255,0.15)" }} />
-                    <Image
-                        src="/images/RusLASA_logo.png"
-                        alt="Rus-LASA"
-                        width={100}
-                        height={50}
-                        style={{ width: "auto", height: 50, objectFit: "contain" }}
-                    />
+                    <a href="https://ruslasa.org/" target="_blank" rel="noopener noreferrer" className="header-logo-link" style={{ display: "flex", alignItems: "center" }}>
+                        <Image
+                            src="/images/RusLASA_logo.png"
+                            alt="Rus-LASA"
+                            width={100}
+                            height={50}
+                            style={{ width: "auto", height: 50, objectFit: "contain" }}
+                        />
+                    </a>
                 </div>
 
                 <div className="header-date">
