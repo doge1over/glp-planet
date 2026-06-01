@@ -1,7 +1,7 @@
 "use client";
 
 import Reveal from "./Reveal";
-import { IconPin } from "./Icons";
+import { IconArrow, IconFile, IconPin, IconCalendar } from "./Icons";
 
 export default function About() {
     return (
@@ -49,7 +49,16 @@ export default function About() {
                         </div>
                         <div className="about-info-card">
                             <div className="about-info-card-title">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                                <svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="1.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                >
                                     <path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2" />
                                     <circle cx="9" cy="7" r="4" />
                                     <path d="M22 21v-2a4 4 0 00-3-3.87" />
@@ -64,50 +73,137 @@ export default function About() {
                         </div>
                     </div>
                 </Reveal>
+
+                {/* Кнопки «Онлайн расписание» (слева) и «Программа конференции» */}
+                <Reveal delay={320}>
+                    <div className="about-btn-row" style={{ marginTop: 40 }}>
+                        <a
+                            href="/schedule"
+                            className="about-btn-outline about-btn-large about-btn-half"
+                            style={{ textDecoration: "none" }}
+                        >
+                            <IconCalendar />
+                            <span>Онлайн расписание</span>
+                        </a>
+                        <a
+                            href="/docs/GLP-PLANET-VII-program-preview.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="about-btn-outline about-btn-large about-btn-half"
+                            style={{ textDecoration: "none" }}
+                        >
+                            <IconFile />
+                            <span>Программа конференции</span>
+                        </a>
+                    </div>
+                </Reveal>
             </div>
 
             <style>{`
-                .about-section { padding: 110px 48px; }
-                .about-text { font-size: 15px; line-height: 1.9; color: #333; margin-bottom: 20px; }
-                .about-info-row {
-                    display: grid;
-                    grid-template-columns: 1fr 2fr;
-                    gap: 16px;
-                }
-                .about-info-card {
-                    padding: 22px 24px;
-                    background: var(--light);
-                    border-radius: 4px;
-                    border-left: 3px solid var(--secondary);
-                    display: flex;
-                    flex-direction: column;
-                }
-                .about-info-card-title {
-                    font-weight: 600;
-                    margin-bottom: 8px;
-                    color: var(--primary);
-                    font-size: 13px;
-                    display: flex;
-                    align-items: center;
-                    gap: 8px;
-                }
-                .about-info-card-text {
-                    color: #444;
-                    line-height: 1.6;
-                    font-size: 13px;
-                    flex: 1;
-                }
-                @media (max-width: 1024px) {
-                    .about-section { padding: 80px 32px; }
-                }
-                @media (max-width: 700px) {
-                    .about-info-row { grid-template-columns: 1fr; }
-                }
-                @media (max-width: 600px) {
-                    .about-section { padding: 60px 20px; }
-                    .about-text { font-size: 14px; line-height: 1.75; }
-                }
-            `}</style>
+        .about-section { padding: 110px 48px; }
+        .about-text { font-size: 15px; line-height: 1.9; color: #333; margin-bottom: 20px; }
+        .about-info-row {
+          display: grid;
+          grid-template-columns: 1fr 2fr;
+          gap: 16px;
+        }
+        .about-info-card {
+          padding: 22px 24px;
+          background: var(--light);
+          border-radius: 4px;
+          border-left: 3px solid var(--secondary);
+          display: flex;
+          flex-direction: column;
+        }
+        .about-info-card-title {
+          font-weight: 600;
+          margin-bottom: 8px;
+          color: var(--primary);
+          font-size: 13px;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+        .about-info-card-text {
+          color: #444;
+          line-height: 1.6;
+          font-size: 13px;
+          flex: 1;
+        }
+
+        /* Базовая кнопка */
+        .about-btn-outline {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          border: 1px solid var(--secondary, #6B82C4);
+          border-radius: 4px;
+          background: transparent;
+          color: var(--primary, #1F2A5E);
+          font-weight: 600;
+          transition: all 0.2s ease;
+          text-decoration: none;
+          white-space: nowrap;
+        }
+        .about-btn-outline:hover {
+          background: var(--secondary, #6B82C4);
+          color: #ffffff;
+        }
+        .about-btn-outline:hover svg {
+          color: #ffffff;
+        }
+        .about-btn-outline svg {
+          flex-shrink: 0;
+        }
+
+        /* Увеличенная версия */
+        .about-btn-large {
+          padding: 16px 32px;
+          font-size: 18px;
+          gap: 12px;
+        }
+        .about-btn-large svg {
+          width: 22px;
+          height: 22px;
+        }
+
+        /* Растягивание на всю ширину */
+        .about-btn-full {
+          width: 100%;
+          justify-content: center;
+        }
+
+        /* Ряд из двух кнопок */
+        .about-btn-row {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 16px;
+        }
+        .about-btn-half {
+          width: 100%;
+          justify-content: center;
+        }
+
+        @media (max-width: 1024px) {
+          .about-section { padding: 80px 32px; }
+        }
+        @media (max-width: 700px) {
+          .about-info-row { grid-template-columns: 1fr; }
+          .about-btn-row { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 600px) {
+          .about-section { padding: 60px 20px; }
+          .about-text { font-size: 14px; line-height: 1.75; }
+          .about-btn-large {
+            padding: 14px 28px;
+            font-size: 16px;
+          }
+          .about-btn-large svg {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      `}</style>
         </section>
     );
 }

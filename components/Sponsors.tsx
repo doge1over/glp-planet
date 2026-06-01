@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import Reveal from "./Reveal";
 import Image from "next/image";
 
@@ -17,7 +18,7 @@ interface Tier {
 }
 
 // Заполните массивы спонсоров для каждого уровня.
-// Если в массиве 4+ — будет автопрокрутка. Если меньше — выравнивание по центру без прокрутки.
+// Карусель включается автоматически, если все карточки не помещаются в видимую область.
 const tiers: Tier[] = [
     {
         label: "Генеральные спонсоры",
@@ -30,7 +31,7 @@ const tiers: Tier[] = [
         label: "Золотые спонсоры",
         sponsors: [
             { name: "БиоГен-Аналитика", img: "/images/sponsors/@logo.png", href: "https://bga.ru/" },
-            { name: "БиоЛайн", img: "/images/sponsors/BL_rus_LOGO.png", href: " https://bioline.ru/" }
+            { name: "БиоЛайн", img: "/images/sponsors/BL_rus_LOGO.png", href: "https://bioline.ru/" },
         ],
         speed: 32,
     },
@@ -39,7 +40,14 @@ const tiers: Tier[] = [
         sponsors: [
             { name: "ТехноИнфо", img: "/images/sponsors/ТехноИнфо_LOGO_2024 (5).png", href: "https://technoinfo.ru/" },
             { name: "Группа компаний «Р-Фарм»", img: "/images/sponsors/Р-Фарм.png", href: "https://www.r-pharm.com" },
-            { name: "Лабнео", img: "/images/sponsors/labneo.png", href: "https://labneo.ru/" },
+            { name: "LUMINON", img: "/images/sponsors/Znak-end-RGB-01.jpg", href: "https://luminon.ru", scale: 1.6 },
+            { name: "LabNeo", img: "/images/sponsors/labneo.png", href: "https://labneo.ru/" },
+            { name: "SciCat — платформа научных каталогов", img: "/images/partners/scicat.png", href: "https://sci-cat.ru/" },
+            { name: "ООО «ФИЗЛАБПРИБОР»", img: "/images/sponsors/fizlab.png", href: "https://fizlab.ru/" },
+            { name: "Биокад", img: "/images/sponsors/logo_BIOCAD_25_color_2.png", href: "https://biocad.ru/" },
+            { name: "АО «НПО «ДОМ ФАРМАЦИИ»", img: "/images/sponsors/logo-vector.png", href: "https://doclinika.ru/" },
+            { name: "ООО «ВЕТКОРМТОРГ»", img: "/images/sponsors/веткт лого-Photoroom (1).jpg", href: "https://vetkt.ru/" },
+            { name: "ООО «БМТ-МММ»", img: "/images/sponsors/BMT_logo.jpg", href: "https://bmt-mmm.ru/ ", scale: 1.6},
         ],
         speed: 35,
     },
@@ -48,7 +56,8 @@ const tiers: Tier[] = [
         sponsors: [
             { name: "Журнал «Разработка и регистрация лекарственных средств»", img: "/images/partners/rrl.png", href: "https://www.pharmjournal.ru/jour/announcement/view/618" },
             { name: "Лабораторные животные", img: "/images/sponsors/laj-logo-1862x518-transparent-bg.png", href: "https://labanimalsjournal.ru/" },
-            { name: "SciCat — платформа научных каталогов", img: "/images/partners/scicat.png", href: "https://sci-cat.ru/" },
+            { name: "StereotaX", img: "/images/sponsors/STAX_LOGO_BLACK-01.png", href: "https://stereotax.info/", scale: 1.6 },
+            { name: "НАИИО", img: "/images/sponsors/NAIIO_RUS_Logo1-01.png", href: "https://наиио.рф/рабочие-группы/" },
         ],
         speed: 38,
     },
@@ -90,13 +99,51 @@ function SponsorCard({ s }: { s: Sponsor }) {
 
 function TierRow({ tier }: { tier: Tier }) {
     const { label, sponsors, speed = 30 } = tier;
-    const shouldScroll = sponsors.length >= 4;
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    // shouldScroll = карусель крутится; статично если хватает места
+    // null = ещё не измерили (стартуем статично, чтобы избежать мерцания)
+    const [shouldScroll, setShouldScroll] = useState<boolean>(false);
+
+    useEffect(() => {
+        if (sponsors.length < 2) {
+            setShouldScroll(false);
+            return;
+        }
+
+        const el = containerRef.current;
+        if (!el) return;
+
+        const measure = () => {
+            const containerWidth = el.clientWidth;
+
+            // Размер одной карточки + промежуток (синхронизирован с CSS)
+            const w = window.innerWidth;
+            let slideW = 240;
+            let gap = 32;
+            if (w <= 600) { slideW = 170; gap = 20; }
+            else if (w <= 1024) { slideW = 200; gap = 32; }
+
+            // Общая ширина если поставить все карточки в ряд (плюс зазоры между ними)
+            const totalWidth = sponsors.length * slideW + (sponsors.length - 1) * gap;
+
+            // Если есть хотя бы небольшой запас (для красивого центрирования) — статично.
+            // Если карточки занимают больше доступной ширины — включаем карусель.
+            setShouldScroll(totalWidth > containerWidth - 16);
+        };
+
+        measure();
+        const ro = new ResizeObserver(measure);
+        ro.observe(el);
+        return () => ro.disconnect();
+    }, [sponsors.length]);
+
     const track = shouldScroll
         ? Array.from({ length: COPIES }, () => sponsors).flat()
         : sponsors;
 
     return (
-        <div className="tier-row">
+        <div className="tier-row" ref={containerRef}>
             <div className="tier-label-wrap">
                 <div className="tier-label">{label}</div>
                 <div className="tier-divider" />

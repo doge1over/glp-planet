@@ -5,11 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f52157a0-c438-480c-904d-f81c73af3430" name="Changes" comment="10">
-      <change afterPath="$PROJECT_DIR$/components/ProtectedVideos.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/docs/GLP-PLANET-VII-program-preview.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/sponsors/BMT_logo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/sponsors/NAIIO_RUS_Logo1-01.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/sponsors/STAX_LOGO_BLACK-01.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/sponsors/Znak-end-RGB-01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/sponsors/fizlab.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/sponsors/logo_BIOCAD_25_color_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/sponsors/веткт лого-Photoroom (1).jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/broadcast/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/broadcast/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/About.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/About.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Icons.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Icons.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Sponsors.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Sponsors.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,34 +51,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "js.debugger.nextJs.config.created.client": "true",
-    "js.debugger.nextJs.config.created.server": "true",
-    "last_opened_file_path": "D:/GLP-Planet/components",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "node",
-    "nodejs_package_manager_path": "npm",
-    "npm.Next.js: server-side.executor": "Run",
-    "ts.external.directory.path": "D:\\GLP-Planet\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
+    &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/GLP-Planet/public/images/sponsors&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.Next.js: server-side.executor&quot;: &quot;Run&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\GLP-Planet\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\GLP-Planet\components" />
       <recent name="D:\GLP-Planet\public\images\sponsors" />
+      <recent name="D:\GLP-Planet\public\docs" />
+      <recent name="D:\GLP-Planet\components" />
       <recent name="D:\GLP-Planet\app\Broadcast" />
       <recent name="D:\GLP-Planet\app\broadcast" />
-      <recent name="D:\GLP-Planet\public\docs" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\GLP-Planet\public\images\sponsors" />
@@ -140,6 +148,17 @@
       <workItem from="1778238523865" duration="3485000" />
       <workItem from="1778536375244" duration="10000" />
       <workItem from="1778933967702" duration="962000" />
+      <workItem from="1779108419151" duration="78000" />
+      <workItem from="1779200464360" duration="1559000" />
+      <workItem from="1779203968017" duration="1491000" />
+      <workItem from="1779362510971" duration="2798000" />
+      <workItem from="1779451359373" duration="4497000" />
+      <workItem from="1779739585850" duration="6000" />
+      <workItem from="1779994637062" duration="6574000" />
+      <workItem from="1780057625723" duration="27000" />
+      <workItem from="1780173215828" duration="1299000" />
+      <workItem from="1780248650867" duration="10000" />
+      <workItem from="1780340192634" duration="2065000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
