@@ -3,33 +3,41 @@
 import Link from "next/link";
 import { useState } from "react";
 
+const PW_KEY = "ap_admin_pw_v1";
+
 export default function AdminLoginPage() {
-    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState<string | null>(null);
+    const [loading, setLoading] = useState(false);
+
+    async function handleSubmit(e: React.FormEvent) {
+        e.preventDefault();
+        setError(null);
+        setLoading(true);
+        try {
+            const res = await fetch(`/api/admin/program?pw=${encodeURIComponent(password)}`);
+            const data = await res.json();
+            if (res.ok && data.ok) {
+                try { sessionStorage.setItem(PW_KEY, password); } catch { /* ignore */ }
+                window.location.href = "/admin/program";
+            } else {
+                setError(data.message || "Неверный пароль.");
+            }
+        } catch {
+            setError("Ошибка соединения.");
+        } finally {
+            setLoading(false);
+        }
+    }
 
     return (
         <main className="al-main">
             <div className="al-card">
-                <div className="al-brand">GLP-PLANET</div>
-                <h1 className="al-title">Админ-панель</h1>
-                <p className="al-sub">Управление расписанием конференции</p>
+                <div className="al-brand">GLP-PLANET · Админ</div>
+                <h1 className="al-title">Вход в панель</h1>
+                <p className="al-sub">Расписание и управление конференцией</p>
 
-                <div className="al-demo">
-                    Демо-версия — авторизация не подключена.
-                </div>
-
-                {/* Форма-заглушка: реального входа нет, кнопка просто открывает редактор */}
-                <form className="al-form" onSubmit={(e) => e.preventDefault()}>
-                    <label className="al-field">
-                        <span>E-mail</span>
-                        <input
-                            type="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            placeholder="admin@glp-planet.ru"
-                            autoComplete="off"
-                        />
-                    </label>
+                <form className="al-form" onSubmit={handleSubmit}>
                     <label className="al-field">
                         <span>Пароль</span>
                         <input
@@ -37,14 +45,23 @@ export default function AdminLoginPage() {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             placeholder="••••••••"
+                            autoFocus
                             autoComplete="off"
                         />
                     </label>
-
-                    <Link href="/admin/program" className="al-btn">
-                        Войти в демо-режиме
-                    </Link>
+                    {error && <div className="al-err">{error}</div>}
+                    <button type="submit" className="al-btn" disabled={loading || !password}>
+                        {loading ? "Проверка…" : "Войти"}
+                    </button>
                 </form>
+
+                <div className="al-divider" />
+
+                <div className="al-links">
+                    <Link href="/admin/registrations" className="al-alt-link">
+                        Заявки на мастер-классы →
+                    </Link>
+                </div>
 
                 <Link href="/" className="al-back">← На главную</Link>
             </div>
@@ -68,15 +85,7 @@ export default function AdminLoginPage() {
           color: #6B82C4; font-weight: 600; margin-bottom: 16px;
         }
         .al-title { font-size: 26px; font-weight: 700; color: #fff; margin-bottom: 6px; }
-        .al-sub { font-size: 14px; color: rgba(255,255,255,0.55); margin-bottom: 24px; }
-        .al-demo {
-          padding: 10px 14px; margin-bottom: 24px;
-          background: rgba(196,139,90,0.12);
-          border: 1px solid rgba(196,139,90,0.35);
-          border-left: 3px solid #C48B5A;
-          border-radius: 4px;
-          color: rgba(255,255,255,0.85); font-size: 13px;
-        }
+        .al-sub { font-size: 14px; color: rgba(255,255,255,0.55); margin-bottom: 28px; }
         .al-form { display: flex; flex-direction: column; gap: 16px; }
         .al-field { display: flex; flex-direction: column; gap: 6px; }
         .al-field span {
@@ -91,16 +100,25 @@ export default function AdminLoginPage() {
           outline: none; transition: border-color 0.2s;
         }
         .al-field input:focus { border-color: #559CD6; }
+        .al-err { color: #E08A8A; font-size: 13px; font-weight: 600; }
         .al-btn {
           margin-top: 8px; padding: 13px; border-radius: 6px;
-          background: #559CD6; color: #fff;
-          font-size: 15px; font-weight: 600; text-align: center;
-          text-decoration: none; transition: background 0.2s;
+          background: #559CD6; color: #fff; border: none; cursor: pointer;
+          font-size: 15px; font-weight: 600; font-family: inherit;
+          transition: background 0.2s;
         }
-        .al-btn:hover { background: #4A8BC2; }
+        .al-btn:hover:not(:disabled) { background: #4A8BC2; }
+        .al-btn:disabled { opacity: 0.55; cursor: default; }
+        .al-divider { height: 1px; background: rgba(255,255,255,0.08); margin: 24px 0; }
+        .al-links { display: flex; flex-direction: column; gap: 10px; }
+        .al-alt-link {
+          color: rgba(255,255,255,0.5); font-size: 13px; text-decoration: none;
+          transition: color 0.2s;
+        }
+        .al-alt-link:hover { color: #fff; }
         .al-back {
           display: block; margin-top: 24px; text-align: center;
-          color: rgba(255,255,255,0.5); font-size: 13px; text-decoration: none;
+          color: rgba(255,255,255,0.35); font-size: 13px; text-decoration: none;
           transition: color 0.2s;
         }
         .al-back:hover { color: #fff; }

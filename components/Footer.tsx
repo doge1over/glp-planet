@@ -60,6 +60,12 @@ export default function Footer() {
                 <div className="footer-bottom">
                     <div>© 2026 GLP-PLANET</div>
                     <div>Совместно с Rus-LASA</div>
+                    <div>
+                        Разработка:{" "}
+                        <a href="https://labneo.ru/" target="_blank" rel="noopener noreferrer" className="footer-labneo-link">
+                            ЛАБНЕО
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -91,6 +97,11 @@ export default function Footer() {
           transition: color 0.3s; display: flex; align-items: center; gap: 8px;
         }
         .footer-contact-link:hover { color: #fff; }
+        .footer-labneo-link {
+          color: rgba(255,255,255,0.6); text-decoration: none;
+          transition: color 0.3s;
+        }
+        .footer-labneo-link:hover { color: #fff; }
 
         @media (max-width: 1024px) {
           .footer-section { padding: 48px 32px 24px; }

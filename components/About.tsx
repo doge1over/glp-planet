@@ -79,6 +79,8 @@ export default function About() {
                     <div className="about-btn-row" style={{ marginTop: 40 }}>
                         <a
                             href="/schedule"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="about-btn-outline about-btn-large about-btn-half"
                             style={{ textDecoration: "none" }}
                         >
@@ -86,7 +88,7 @@ export default function About() {
                             <span>Онлайн расписание</span>
                         </a>
                         <a
-                            href="/docs/GLP-PLANET-VII-program-preview.pdf"
+                            href="/docs/Programma_GLP_PLANET_VII-1.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="about-btn-outline about-btn-large about-btn-half"

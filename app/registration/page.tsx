@@ -23,31 +23,6 @@ function FadeIn({ children, delay = 0, direction = "up" }: { children: React.Rea
     );
 }
 
-function CopyEmail() {
-    const [copied, setCopied] = useState(false);
-    const email = "sci.secretary@glp-planet.com";
-    const handleCopy = () => {
-        navigator.clipboard.writeText(email).then(() => {
-            setCopied(true);
-            setTimeout(() => setCopied(false), 2000);
-        });
-    };
-    return (
-        <button onClick={handleCopy} style={{
-            display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
-            width: "100%", padding: "12px 16px", background: "rgba(107,130,196,0.12)",
-            border: "1px solid rgba(107,130,196,0.2)", borderRadius: 6,
-            cursor: "pointer", transition: "all 0.3s",
-        }}>
-            <span style={{ fontSize: 13, fontWeight: 500, color: "#fff", fontFamily: "'Exo 2', sans-serif" }}>{email}</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                {copied ? <><path d="M20 6L9 17l-5-5" /></> : <><rect x="9" y="9" width="13" height="13" rx="2" /><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" /></>}
-            </svg>
-            {copied && <span style={{ fontSize: 11, color: "rgba(255,255,255,0.5)" }}>скопировано</span>}
-        </button>
-    );
-}
-
 export default function RegistrationPage() {
     return (
         <>
@@ -138,38 +113,42 @@ export default function RegistrationPage() {
                                 </div>
                             </FadeIn>
 
-                            {/* Лектор */}
+                            {/* Мастер-классы */}
                             <FadeIn delay={300}>
                                 <div className="reg-card reg-card-accent">
                                     <div className="reg-card-icon">
                                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                                            <path d="M12 14l9-5-9-5-9 5 9 5z" />
-                                            <path d="M12 14l6.16-3.42A12 12 0 0112 21a12 12 0 01-6.16-10.42L12 14z" />
-                                            <line x1="12" y1="14" x2="12" y2="21" />
+                                            <path d="M2 3h20v14H2z" />
+                                            <path d="M8 21h8" />
+                                            <path d="M12 17v4" />
+                                            <path d="M7 12l3-3 2 2 4-4" />
                                         </svg>
                                     </div>
-                                    <h3 className="reg-card-title">Лектор</h3>
+                                    <h3 className="reg-card-title">Мастер-классы</h3>
                                     <p className="reg-card-desc">
-                                        Лектор участвует без организационного взноса. Для регистрации в качестве лектора
-                                        направьте тему доклада и его краткое описание на почту организационного комитета.
+                                        Практические мастер-классы конференции с ограниченным числом мест.
+                                        Запись открыта для зарегистрированных участников по коду доступа.
                                     </p>
 
-                                    {/* Notice for closed submissions */}
+                                    {/* Notice about deadline */}
                                     <div className="reg-card-notice">
                                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                              strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                                             <circle cx="12" cy="12" r="10" />
-                                            <line x1="12" y1="8" x2="12" y2="12" />
-                                            <circle cx="12" cy="16" r="0.6" fill="currentColor" />
+                                            <polyline points="12 6 12 12 16 14" />
                                         </svg>
-                                        <span>Приём докладов на конференцию GLP-PLANET закрыт!</span>
+                                        <span>Подача заявок — до 23.06.2026 включительно</span>
                                     </div>
 
                                     <div style={{ marginTop: "auto", paddingTop: 24 }}>
-                                        <p style={{ fontSize: 13, color: "rgba(255,255,255,0.65)", lineHeight: 1.7, marginBottom: 14, textAlign: "center" }}>
-                                            Для регистрации напишите на почту
-                                        </p>
-                                        <CopyEmail />
+                                        <a
+                                            href="/master-classes"
+                                            className="btn-primary"
+                                            style={{ textDecoration: "none", width: "100%", justifyContent: "center", background: "#559CD6" }}
+                                        >
+                                            <span>Записаться</span>
+                                            <IconArrow />
+                                        </a>
                                     </div>
                                 </div>
                             </FadeIn>

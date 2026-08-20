@@ -10,6 +10,7 @@ const years = [
     { year: 2023, roman: "IV", label: "GLP — Planet конференция 4.0", img: "/images/archive/2023.jpg", href: "https://glp-planet.com/conference2023/" },
     { year: 2024, roman: "V", label: "GLP — Planet конференция 5.0", img: "/images/archive/2024.jpg", href: "https://glp-planet.com/glp-planet-konferencziya-2024/" },
     { year: 2025, roman: "VI", label: "GLP — Planet конференция 6.0", img: "/images/archive/2025.jpg", href: "https://glp-planet.com/glp-planet-konferencziya-2025/" },
+    { year: 2026, roman: "VII", label: "GLP — Planet конференция 7.0", img: null, href: "/archive/2026" },
 ];
 
 export default function ArchiveSection() {
@@ -23,7 +24,13 @@ export default function ArchiveSection() {
                     {years.map((item, i) => (
                         <Reveal key={item.year} delay={120 + i * 50}>
                             <a href={item.href} target="_blank" rel="noopener noreferrer" className="archive-home-card">
-                                <Image src={item.img} alt={item.label} fill sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw" className="archive-home-card-img" />
+                                {item.img ? (
+                                    <Image src={item.img} alt={item.label} fill sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw" className="archive-home-card-img" />
+                                ) : (
+                                    <div className="archive-home-card-placeholder">
+                                        <Image src="/images/logo.png" alt="GLP-PLANET" width={180} height={90} />
+                                    </div>
+                                )}
                                 <div className="archive-home-card-overlay" />
                                 <div className="archive-home-card-content">
                                     <div className="archive-home-card-year">{item.year}</div>
@@ -46,6 +53,14 @@ export default function ArchiveSection() {
           object-fit: cover;
           transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1) !important;
         }
+        .archive-home-card-placeholder {
+          position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+          background:
+            radial-gradient(circle at 18% 20%, rgba(107,130,196,0.45), transparent 30%),
+            radial-gradient(circle at 82% 72%, rgba(73,100,162,0.35), transparent 34%),
+            linear-gradient(145deg, #080C24, #25346F);
+        }
+        .archive-home-card-placeholder img { width: 42%; height: auto; opacity: 0.62; }
         .archive-home-card:hover .archive-home-card-img { transform: scale(1.12); }
         .archive-home-card-overlay {
           position: absolute; inset: 0;

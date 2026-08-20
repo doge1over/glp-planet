@@ -9,6 +9,8 @@ interface Sponsor {
     img: string;
     href?: string | null;
     scale?: number;
+    offsetY?: number;
+    className?: string;
 }
 
 interface Tier {
@@ -40,14 +42,17 @@ const tiers: Tier[] = [
         sponsors: [
             { name: "ТехноИнфо", img: "/images/sponsors/ТехноИнфо_LOGO_2024 (5).png", href: "https://technoinfo.ru/" },
             { name: "Группа компаний «Р-Фарм»", img: "/images/sponsors/Р-Фарм.png", href: "https://www.r-pharm.com" },
-            { name: "LUMINON", img: "/images/sponsors/Znak-end-RGB-01.jpg", href: "https://luminon.ru", scale: 1.6 },
+            { name: "LUMINON", img: "/images/sponsors/Logo-487х183.png", href: "https://luminon.ru", },
             { name: "LabNeo", img: "/images/sponsors/labneo.png", href: "https://labneo.ru/" },
             { name: "SciCat — платформа научных каталогов", img: "/images/partners/scicat.png", href: "https://sci-cat.ru/" },
             { name: "ООО «ФИЗЛАБПРИБОР»", img: "/images/sponsors/fizlab.png", href: "https://fizlab.ru/" },
             { name: "Биокад", img: "/images/sponsors/logo_BIOCAD_25_color_2.png", href: "https://biocad.ru/" },
             { name: "АО «НПО «ДОМ ФАРМАЦИИ»", img: "/images/sponsors/logo-vector.png", href: "https://doclinika.ru/" },
-            { name: "ООО «ВЕТКОРМТОРГ»", img: "/images/sponsors/веткт лого-Photoroom (1).jpg", href: "https://vetkt.ru/" },
+            { name: "ООО «ВЕТКОРМТОРГ»", img: "/images/sponsors/веткт лого.png", href: "https://vetkt.ru/" },
             { name: "ООО «БМТ-МММ»", img: "/images/sponsors/BMT_logo.jpg", href: "https://bmt-mmm.ru/ ", scale: 1.6},
+            { name: "BioInn Labs", img: "/images/sponsors/логотип.jpg", href: "https://bioinnlabs.ru", scale: 1.2 },
+            { name: "АНО АВТех", img: "/images/sponsors/Логотип AWTECH.png", href: "https://awt.ru/product/vivariy/" },
+            { name: "Группа компаний «ЭДВАНСД»", img: "/images/sponsors/logo_advanced.png", scale: 1.4, className: "sponsor-edvansed" },
         ],
         speed: 35,
     },
@@ -80,6 +85,7 @@ function SponsorCard({ s }: { s: Sponsor }) {
                         maxWidth: 180 * (s.scale ?? 1),
                         maxHeight: 70 * (s.scale ?? 1),
                         objectFit: "contain",
+                        transform: s.offsetY ? `translateY(${s.offsetY}px)` : undefined,
                     }}
                 />
             </div>
@@ -89,12 +95,12 @@ function SponsorCard({ s }: { s: Sponsor }) {
 
     if (s.href) {
         return (
-            <a href={s.href} target="_blank" rel="noopener noreferrer" className="sponsor-slide sponsor-slide-link">
+            <a href={s.href} target="_blank" rel="noopener noreferrer" className={`sponsor-slide sponsor-slide-link${s.className ? ` ${s.className}` : ""}`}>
                 {inner}
             </a>
         );
     }
-    return <div className="sponsor-slide">{inner}</div>;
+    return <div className={`sponsor-slide${s.className ? ` ${s.className}` : ""}`}>{inner}</div>;
 }
 
 function TierRow({ tier }: { tier: Tier }) {
@@ -322,7 +328,8 @@ export default function Sponsors() {
                 .sponsor-slide-inner {
                     width: 240px;
                     height: 110px;
-                    background: rgba(255,255,255,0.95);
+                    background: #fff;
+                    isolation: isolate;
                     border-radius: 6px;
                     display: flex;
                     align-items: center;
@@ -332,6 +339,9 @@ export default function Sponsors() {
                     border: 1px solid rgba(107,130,196,0.1);
                     overflow: hidden;
                     box-sizing: border-box;
+                }
+                .sponsor-slide-inner img {
+                    mix-blend-mode: multiply;
                 }
                 .sponsor-slide:hover .sponsor-slide-inner {
                     transform: translateY(-6px);
@@ -377,6 +387,7 @@ export default function Sponsors() {
                     .sponsor-slide { width: 170px; }
                     .sponsor-slide-inner { width: 170px; height: 85px; padding: 16px; }
                     .sponsor-slide-inner img { max-width: 140px !important; max-height: 55px !important; }
+                    .sponsor-edvansed .sponsor-slide-inner img { max-width: 165px !important; max-height: 76px !important; transform: none !important; }
                     .sponsor-slide-name { font-size: 10px; max-width: 170px; }
                     .tiers-wrap { gap: 28px; }
                     .tier-label { font-size: 10px; letter-spacing: 1.5px; }

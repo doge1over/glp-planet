@@ -20,9 +20,9 @@ type Room = {
 };
 
 const ROOMS: Room[] = [
-    { hash: "dsHlHhQP", activityId: "10184", label: "1. Зал «Санкт-Петербург»" },
-    { hash: "wulMESsf", activityId: "10245", label: "2. Зал «Стрельна»" },
-    { hash: "HIAtuQpL", activityId: "10246", label: "3. Зал «Выборг»" },
+    { hash: "YpiOqOhG", activityId: "10741", label: "1. Зал «Санкт-Петербург»" },
+    { hash: "QXbaznQV", activityId: "10742", label: "2. Зал «Стрельна»" },
+    { hash: "liBQmque", activityId: "10743", label: "3. Зал «Выборг»" },
 ];
 
 const MODE = "platform";
@@ -92,7 +92,7 @@ export default function BroadcastPage() {
                         <p className="bc-subtitle">
                             Прямая трансляция и записи сессий VII Международной научно-практической конференции GLP-PLANET
                         </p>
-                        <a href="/schedule" className="bc-schedule-btn">
+                        <a href="/schedule" target="_blank" rel="noopener noreferrer" className="bc-schedule-btn">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                  strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
                                 <rect x="3" y="4" width="18" height="18" rx="2" />
@@ -205,7 +205,6 @@ export default function BroadcastPage() {
           max-width: 1240px;
           margin: 0 auto 32px;
           border-radius: 8px;
-          overflow: hidden;
           background: #000;
           box-shadow: 0 30px 80px rgba(0,0,0,0.4);
           border: 1px solid rgba(107,130,196,0.15);
@@ -256,21 +255,14 @@ export default function BroadcastPage() {
           }
         }
 
-        /* Responsive aspect ratios */
         .bc-player-frame {
-          position: relative;
           width: 100%;
-          aspect-ratio: 20 / 9;
         }
         .bc-player-frame > div {
-          position: absolute;
-          inset: 0;
           width: 100%;
-          height: 100%;
         }
         .bc-player-frame iframe {
           width: 100% !important;
-          height: 100% !important;
           border: 0;
           display: block;
         }
@@ -307,9 +299,6 @@ export default function BroadcastPage() {
           padding-top: 7px;
         }
 
-        @media (max-width: 1280px) {
-          .bc-player-frame { aspect-ratio: 16 / 9; }
-        }
         @media (max-width: 1024px) {
           .bc-hero { padding: 120px 32px 48px; }
           .bc-title { font-size: 34px; }
@@ -317,7 +306,6 @@ export default function BroadcastPage() {
           .tabs__control { font-size: 16px; padding: 8px 16px; }
         }
         @media (max-width: 768px) {
-          .bc-player-frame { aspect-ratio: 16 / 10; }
           .tabs__control { font-size: 14px; padding: 8px 12px; letter-spacing: 0.5px; }
         }
         @media (max-width: 600px) {
@@ -327,15 +315,11 @@ export default function BroadcastPage() {
           .bc-subtitle { font-size: 14px; line-height: 1.65; }
           .bc-player-section { padding: 28px 16px 56px; }
           .bc-player-wrap { border-radius: 6px; margin-bottom: 20px; }
-          .bc-player-frame { aspect-ratio: 4 / 3; }
           .bc-info-card { padding: 14px 16px; gap: 12px; }
           .bc-info-icon { width: 32px; height: 32px; }
           .bc-info-icon svg { width: 16px; height: 16px; }
           .bc-info-text { font-size: 12px; padding-top: 5px; }
           .tabs__control { font-size: 12px; padding: 6px 8px; letter-spacing: 0.3px; }
-        }
-        @media (max-width: 400px) {
-          .bc-player-frame { aspect-ratio: 9 / 10; }
         }
       `}</style>
         </>

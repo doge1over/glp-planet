@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 
 export const metadata = {
     title: "Архив конференций — GLP-Planet",
-    description: "Архив конференций GLP-PLANET с 2020 по 2025 год",
+    description: "Архив конференций GLP-PLANET с 2020 по 2026 год",
 };
 
 const conferences = [
@@ -14,6 +14,7 @@ const conferences = [
     { year: 2023, roman: "IV",  label: "GLP — Planet конференция 4.0", img: "/images/archive/2023.jpg", href: "/archive/2023" },
     { year: 2024, roman: "V",   label: "GLP — Planet конференция 5.0", img: "/images/archive/2024.jpg", href: "/archive/2024" },
     { year: 2025, roman: "VI",  label: "GLP — Planet конференция 6.0", img: "/images/archive/2020.jpg", href: "/archive/2025" },
+    { year: 2026, roman: "VII", label: "GLP — Planet конференция 7.0", img: null, href: "/archive/2026" },
 ];
 
 export default function ArchivePage() {
@@ -34,7 +35,13 @@ export default function ArchivePage() {
                         <div className="archive-page-grid">
                             {conferences.map((conf) => (
                                 <a key={conf.year} href={conf.href} target="_blank" rel="noopener noreferrer" className="archive-card">
-                                    <Image src={conf.img} alt={conf.label} fill sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw" className="archive-card-img" />
+                                    {conf.img ? (
+                                        <Image src={conf.img} alt={conf.label} fill sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw" className="archive-card-img" />
+                                    ) : (
+                                        <div className="archive-card-placeholder">
+                                            <Image src="/images/logo.png" alt="GLP-PLANET" width={180} height={90} />
+                                        </div>
+                                    )}
                                     <div className="archive-card-overlay" />
                                     <div className="archive-card-content">
                                         <div className="archive-card-year">{conf.year}</div>
@@ -64,6 +71,14 @@ export default function ArchivePage() {
           object-fit: cover;
           transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1) !important;
         }
+        .archive-card-placeholder {
+          position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+          background:
+            radial-gradient(circle at 18% 20%, rgba(107,130,196,0.45), transparent 30%),
+            radial-gradient(circle at 82% 72%, rgba(73,100,162,0.35), transparent 34%),
+            linear-gradient(145deg, #080C24, #25346F);
+        }
+        .archive-card-placeholder img { width: 42%; height: auto; opacity: 0.62; }
         .archive-card:hover .archive-card-img { transform: scale(1.12); }
         .archive-card-overlay {
           position: absolute; inset: 0;

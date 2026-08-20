@@ -8,6 +8,7 @@ interface ProtectedVideo {
     description?: string;
     password: string;
     videoSrc: string;
+    fileType?: "video" | "presentation";
     thumbnail?: string;
 }
 
@@ -15,24 +16,17 @@ interface ProtectedVideo {
 const VIDEOS: ProtectedVideo[] = [
     {
         id: "video-1",
-        title: "День 1 · 1 июля 2026",
-        description: "Открытие конференции и тематические сессии",
-        password: "day1-glp",
-        videoSrc: "/videos/hero-video.mp4",
+        title: "Давлианидзе Татьяна Алексеевна",
+        description: "Массовое разведение насекомых в лаборатории: от яйца до тест-объекта в исследовании эффективности инсектицидов · младший научный сотрудник Института дезинфектологии ФБУН «ФНЦГ им. Ф.Ф. Эрисмана» Роспотребнадзора",
+        password: "glpplanet2026",
+        videoSrc: "/videos/SVID_20260605_054509_1.mp4",
     },
     {
         id: "video-2",
-        title: "День 2 · 2 июля 2026",
-        description: "Мастер-классы и круглые столы",
-        password: "day2-glp",
-        videoSrc: "/videos/hero-video.mp4",
-    },
-    {
-        id: "video-3",
-        title: "День 3 · 3 июля 2026",
-        description: "Закрытие конференции и итоги",
-        password: "day3-glp",
-        videoSrc: "/videos/hero-video.mp4",
+        title: "Dasha Fuentes, CENPALAB — Vaxira",
+        description: "Conferencia Evento Rusia 2026 preclínica Vaxira · видеодоклад",
+        password: "glpplanet2026",
+        videoSrc: "/videos/Conferencia Evento Rusia 2026 preclínica Vaxira p.mp4",
     },
 ];
 // ─────────────────────────────────────────────────
@@ -75,7 +69,7 @@ export default function ProtectedVideos() {
             <div className="pv-container">
                 <div className="pv-header">
                     <div className="pv-label">Записи</div>
-                    <h2 className="pv-title">Архив сессий</h2>
+                    <h2 className="pv-title">Видео доклады</h2>
                     <p className="pv-subtitle">
                         Для доступа к каждой записи введите пароль участника
                     </p>
@@ -90,7 +84,19 @@ export default function ProtectedVideos() {
                         return (
                             <div key={v.id} className="pv-card">
                                 <div className="pv-frame">
-                                    {isUnlocked ? (
+                                    {isUnlocked && v.fileType === "presentation" ? (
+                                        <div className="pv-file">
+                                            <div className="pv-file-icon">PPTX</div>
+                                            <div className="pv-file-actions">
+                                                <a className="pv-file-btn" href={v.videoSrc} target="_blank" rel="noreferrer">
+                                                    Открыть презентацию
+                                                </a>
+                                                <a className="pv-file-link" href={v.videoSrc} download>
+                                                    Скачать файл
+                                                </a>
+                                            </div>
+                                        </div>
+                                    ) : isUnlocked ? (
                                         <video
                                             src={v.videoSrc}
                                             controls
@@ -212,9 +218,72 @@ export default function ProtectedVideos() {
                     inset: 0;
                     width: 100%;
                     height: 100%;
-                    object-fit: cover;
+                    object-fit: contain;
                     background: #000;
                     display: block;
+                }
+                .pv-file {
+                    position: absolute;
+                    inset: 0;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 18px;
+                    padding: 22px;
+                    background:
+                        radial-gradient(circle at 50% 30%, rgba(107,130,196,0.28), transparent 48%),
+                        linear-gradient(135deg, #101740 0%, #1b2460 100%);
+                }
+                .pv-file-icon {
+                    width: 78px;
+                    height: 78px;
+                    border-radius: 8px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: rgba(255,255,255,0.1);
+                    border: 1px solid rgba(255,255,255,0.18);
+                    color: #fff;
+                    font-size: 15px;
+                    font-weight: 700;
+                    letter-spacing: 1px;
+                }
+                .pv-file-actions {
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+                .pv-file-btn,
+                .pv-file-link {
+                    min-height: 40px;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 5px;
+                    font-family: 'Exo 2', sans-serif;
+                    font-size: 13px;
+                    font-weight: 600;
+                    text-decoration: none;
+                    transition: background 0.25s, border-color 0.25s;
+                }
+                .pv-file-btn {
+                    padding: 0 18px;
+                    background: var(--secondary, #4964A2);
+                    color: #fff;
+                }
+                .pv-file-btn:hover { background: #6B82C4; }
+                .pv-file-link {
+                    padding: 0 14px;
+                    border: 1px solid rgba(255,255,255,0.18);
+                    color: rgba(255,255,255,0.76);
+                    background: rgba(255,255,255,0.04);
+                }
+                .pv-file-link:hover {
+                    border-color: rgba(255,255,255,0.34);
+                    background: rgba(255,255,255,0.08);
                 }
 
                 .pv-locked {
