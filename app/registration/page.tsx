@@ -41,7 +41,7 @@ export default function RegistrationPage() {
                         </FadeIn>
                         <FadeIn delay={160}>
                             <p style={{ fontSize: 16, color: "rgba(255,255,255,0.6)", lineHeight: 1.8, maxWidth: 560 }}>
-                                Выберите удобный формат участия в VII конференции GLP-PLANET,<br />1–3 июля 2026 г., Санкт-Петербург
+                                Выберите удобный формат участия в VIII конференции GLP-PLANET,<br />30 июня — 2 июля 2027 г., Санкт-Петербург
                             </p>
                         </FadeIn>
                     </div>

@@ -4,10 +4,10 @@ import Reveal from "./Reveal";
 import Counter from "./Counter";
 
 const stats: ({ n: number; s: string; l: string; roman?: undefined } | { roman: string; l: string; n?: undefined; s?: undefined })[] = [
-    { roman: "VII", l: "Конференция" },
-    { n: 12, s: "", l: "Сессий" },
+    { roman: "VIII", l: "Конференция" },
     { n: 3, s: "", l: "Дня программы" },
-    { n: 500, s: "+", l: "Участников" },
+    { n: 2, s: "", l: "Формата участия" },
+    { n: 1, s: "", l: "Площадка" },
 ];
 
 export default function Stats() {

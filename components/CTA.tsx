@@ -9,11 +9,11 @@ export default function CTA() {
             <div className="grid-pattern" style={{ position: "absolute", inset: 0, pointerEvents: "none", opacity: 0.5 }} />
             <div className="cta-inner">
                 <Reveal>
-                    <h2 className="cta-title">Регистрация на GLP-PLANET VII</h2>
+                    <h2 className="cta-title">Регистрация на GLP-PLANET VIII</h2>
                 </Reveal>
                 <Reveal delay={60}>
                     <p className="cta-text">
-                        1–3 июля 2026 года, Санкт-Петербург. Очное и онлайн участие.
+                        30 июня — 2 июля 2027 года, Санкт-Петербург. Очное и онлайн участие.
                         Лектор участвует без организационного взноса.
                     </p>
                 </Reveal>

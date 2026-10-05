@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Exo_2 } from "next/font/google";
 import "./globals.css";
+import CookieConsent from "@/components/CookieConsent";
 
 const exo2 = Exo_2({
   subsets: ["cyrillic", "latin"],
@@ -8,7 +9,7 @@ const exo2 = Exo_2({
 });
 
 export const metadata: Metadata = {
-  title: "GLP-Planet — Конференция GLP-PLANET VII",
+  title: "GLP-Planet — Конференция GLP-PLANET VIII",
   description:
     "Ежегодная конференция в области надлежащей лабораторной практики, фармакологии и доклинических исследований",
 };
@@ -20,7 +21,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru">
-      <body className={exo2.className}>{children}</body>
+      <body className={exo2.className}>
+        {children}
+        <CookieConsent />
+      </body>
     </html>
   );
 }

@@ -146,7 +146,7 @@ export default function Header() {
                 </div>
 
                 <div className="header-date">
-                    01 — 03 июля 2026 · Санкт-Петербург
+                    30 июня — 2 июля 2027 · Санкт-Петербург
                 </div>
 
                 <nav className="header-desktop-nav">

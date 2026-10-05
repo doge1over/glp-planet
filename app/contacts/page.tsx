@@ -233,11 +233,11 @@ export default function ContactsPage() {
                                         marginBottom: 24,
                                     }}
                                 >
-                                    VII Конференция GLP-PLANET
+                                    VIII Конференция GLP-PLANET
                                 </h3>
                                 <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
                                     {[
-                                        { label: "Даты", value: "1–3 июля 2026 г." },
+                                        { label: "Даты", value: "30 июня — 2 июля 2027 г." },
                                         { label: "Город", value: "Санкт-Петербург" },
                                         { label: "Площадка", value: "Отель «Санкт-Петербург»" },
                                         { label: "Совместно с", value: "Rus-LASA" },

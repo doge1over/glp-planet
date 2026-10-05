@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import WireframeGlobe from "./WireframeGlobe";
 import { IconFile } from "./Icons";
 
-const CONF_DATE = new Date("2027-07-01T09:00:00+03:00").getTime();
+const CONF_DATE = new Date("2027-06-30T09:00:00+03:00").getTime();
 
 function useCountdown() {
     const [mounted, setMounted] = useState(false);
@@ -40,26 +40,26 @@ export default function Hero() {
                 <div style={{ flex: "1 1 52%", minWidth: 0 }}>
                     <div className="hero-date-badge" style={{ animation: "fadeUp 0.6s ease-out" }}>
                         <div style={{ width: 5, height: 5, borderRadius: 1, background: "#6B82C4" }} />
-                        <span>01 — 03 июля 2026 · Санкт-Петербург</span>
+                        <span>30 июня — 2 июля 2027 · Санкт-Петербург</span>
                     </div>
 
                     <h1 className="hero-title-light" style={{ animation: "fadeUp 0.65s ease-out 0.08s both" }}>
                         Конференция
                     </h1>
                     <h1 className="hero-title-bold" style={{ animation: "fadeUp 0.65s ease-out 0.16s both" }}>
-                        GLP-PLANET <span style={{ fontWeight: 300, color: "#fff" }}>VII</span>
+                        GLP-PLANET <span style={{ fontWeight: 300, color: "#fff" }}>VIII</span>
                     </h1>
                     <p className="hero-subtitle" style={{ animation: "fadeUp 0.65s ease-out 0.24s both" }}>
                         Совместно с Русской ассоциацией специалистов по лабораторным животным Rus-LASA
                     </p>
                     <p className="hero-desc" style={{ animation: "fadeUp 0.65s ease-out 0.28s both" }}>
-                        12 тематических сессий, мастер-классы и круглые столы. Очное и онлайн участие.
+                        Тематические сессии, мастер-классы и круглые столы. Очное и онлайн участие.
                     </p>
 
                     <div className="hero-buttons" style={{ animation: "fadeUp 0.65s ease-out 0.30s both" }}>
-                        <a href="/docs/Programma_GLP_PLANET_VII-1.pdf" target="_blank" rel="noopener noreferrer" className="btn-outline" style={{ textDecoration: "none" }}>
-                            <IconFile /><span>Программа конференции</span>
-                        </a>
+                        <span className="btn-outline" style={{ opacity: 0.75 }}>
+                            <IconFile /><span>Программа пока уточняется</span>
+                        </span>
                     </div>
 
                 </div>

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { IconMail, IconPhone, IconChevron } from "./Icons";
+import { CONSENT_CHANGE_EVENT, THIRD_PARTY_STORAGE_KEY } from "./CookieConsent";
 
 const navItems = [
     { href: "/", label: "Главная" },
@@ -14,6 +15,11 @@ const navItems = [
 ];
 
 export default function Footer() {
+    const resetConsent = () => {
+        window.localStorage.removeItem(THIRD_PARTY_STORAGE_KEY);
+        window.dispatchEvent(new CustomEvent(CONSENT_CHANGE_EVENT, { detail: null }));
+    };
+
     return (
         <footer id="contacts" className="footer-section">
             <div style={{ maxWidth: 1200, margin: "0 auto" }}>
@@ -58,8 +64,14 @@ export default function Footer() {
                 </div>
 
                 <div className="footer-bottom">
-                    <div>© 2026 GLP-PLANET</div>
+                    <div>© 2027 GLP-PLANET</div>
                     <div>Совместно с Rus-LASA</div>
+                    <div className="footer-legal-links">
+                        <Link href="/politika-obrabotki-personalnyh-dannyh">Политика обработки данных</Link>
+                        <Link href="/soglasie-na-obrabotku-personalnyh-dannyh">Согласие на обработку данных</Link>
+                        <Link href="/politika-cookie">Cookies</Link>
+                        <button type="button" onClick={resetConsent}>Настроить cookies</button>
+                    </div>
                     <div>
                         Разработка:{" "}
                         <a href="https://labneo.ru/" target="_blank" rel="noopener noreferrer" className="footer-labneo-link">
@@ -102,6 +114,10 @@ export default function Footer() {
           transition: color 0.3s;
         }
         .footer-labneo-link:hover { color: #fff; }
+        .footer-legal-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 16px; }
+        .footer-legal-links a, .footer-legal-links button { color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.3s; }
+        .footer-legal-links button { padding: 0; border: 0; background: none; font: inherit; cursor: pointer; }
+        .footer-legal-links a:hover, .footer-legal-links button:hover { color: #fff; }
 
         @media (max-width: 1024px) {
           .footer-section { padding: 48px 32px 24px; }

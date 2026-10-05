@@ -77,26 +77,20 @@ export default function About() {
                 {/* Кнопки «Онлайн расписание» (слева) и «Программа конференции» */}
                 <Reveal delay={320}>
                     <div className="about-btn-row" style={{ marginTop: 40 }}>
-                        <a
-                            href="/schedule"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                        <span
                             className="about-btn-outline about-btn-large about-btn-half"
-                            style={{ textDecoration: "none" }}
+                            style={{ opacity: 0.75 }}
                         >
                             <IconCalendar />
-                            <span>Онлайн расписание</span>
-                        </a>
-                        <a
-                            href="/docs/Programma_GLP_PLANET_VII-1.pdf"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            <span>Онлайн-расписание пока уточняется</span>
+                        </span>
+                        <span
                             className="about-btn-outline about-btn-large about-btn-half"
-                            style={{ textDecoration: "none" }}
+                            style={{ opacity: 0.75 }}
                         >
                             <IconFile />
-                            <span>Программа конференции</span>
-                        </a>
+                            <span>Программа пока уточняется</span>
+                        </span>
                     </div>
                 </Reveal>
             </div>
